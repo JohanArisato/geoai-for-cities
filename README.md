@@ -1,6 +1,6 @@
 # GeoAI for Cities
 
-**A research website and article series on GeoAI and urban decision-making** · Johan (Jhoven) Fernandez · Ongoing
+**A research website and article series on GeoAI and urban decision-making** · Jhoven Fernandez · Ongoing
 
 GeoAI is a popular term with a vague meaning. This series defines it carefully, shows how cities used spatial technology long before the term existed, and keeps returning to one question: **when cities use these tools to rank and decide, who benefits?**
 
