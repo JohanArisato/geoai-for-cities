@@ -1,5 +1,7 @@
 # GeoAI for Cities
 
+> 🌐 **Live site: [johanarisato.github.io/geoai-for-cities](https://johanarisato.github.io/geoai-for-cities/)** · [Portfolio](https://johanarisato.github.io/Johan.github.io/)
+
 **A research website and article series on GeoAI and urban decision-making** · Johan Fernandez · Ongoing
 
 GeoAI is a popular term with a vague meaning. This series defines it carefully, shows how cities used spatial technology long before the term existed, and keeps returning to one question: **when cities use these tools to rank and decide, who benefits?**
@@ -22,6 +24,15 @@ The site also profiles my projects, including [CurbCall](https://github.com/Joha
 | [who-gets-the-shade](https://github.com/JohanArisato/who-gets-the-shade) | Study code; reproduces every number in Part 2 from public data |
 | [curbcall](https://github.com/JohanArisato/curbcall) | Resident-ranked infrastructure repairs, San Diego |
 | [housing-site-realization](https://github.com/JohanArisato/housing-site-realization) | Predicting which Housing Element sites get built |
+
+## Interactive explorers (served from `explore/`)
+
+| Explorer | Project |
+|---|---|
+| [Shade map](https://johanarisato.github.io/geoai-for-cities/explore/shade.html) | Who Gets the Shade? |
+| [Housing site explorer](https://johanarisato.github.io/geoai-for-cities/explore/housing.html) | Will It Get Built? (synthetic test data) |
+| [CurbCall app](https://johanarisato.github.io/geoai-for-cities/explore/curbcall.html) | CurbCall (preview mode) |
+| [Database explorer](https://johanarisato.github.io/geoai-for-cities/explore/database.html) | GeoAI Cities DB |
 
 ## Viewing the site
 
