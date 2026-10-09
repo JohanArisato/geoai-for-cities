@@ -1500,7 +1500,7 @@ img { border-radius: 4px; }
     <section class="ch-hero" id="landing" aria-labelledby="ch-title">
       <div class="ch-intro">
         <h1 id="ch-title">Hi, I'm Johan. I study who gets what in cities.</h1>
-        <p>I'm a GIS analyst in San Diego. At work I map stormwater infrastructure for city compliance programs. Here I write up my own research on GeoAI, meaning machine learning that pays attention to location, and test it on public data from San Diego and New York.</p>
+        <p>I'm a GIS analyst in San Diego. For the last two years I mapped stormwater infrastructure for city compliance programs. Here I write up my own research on GeoAI, meaning machine learning that pays attention to location, and test it on public data from San Diego and New York.</p>
         <p>Most of my questions come down to order. When a city can only plant, repair or build in a few places this year, who decides which neighborhoods go first, and does the data behind that choice hold up?</p>
         <p class="ch-actions"><a class="ch-btn ch-btn-main" href="#part-2">Read my latest study</a><a class="ch-btn" href="#about">More about me</a></p>
       </div>
@@ -1663,20 +1663,50 @@ img { border-radius: 4px; }
       <div class="sec-head"><h1 class="page-title" id="about-h">About</h1></div>
       <div class="about">
         <div>
-          <p class="role">GIS and urban planning, working on GeoAI for cities (stormwater, infrastructure and wildfire) and spatial AI</p>
-          <p>Cities spend a lot of money deciding where to build, what to inspect and what to protect. I'm interested in how location-aware AI (GeoAI) can help with those choices, and who ends up benefiting.</p>
-          <p>For the last few years I've worked on stormwater compliance for four San Diego cities. I built ArcGIS Pro geodatabases that ranked Capital Improvement Plan sites, and Python pipelines that cut the time for compliance reporting by roughly 30%.</p>
-          <p>The question I keep coming back to is whether GeoAI can predict where public investment does the most good, and who actually benefits when it does. I'm learning that on the job now and want to go further with graduate study.</p>
-          <p>At UC San Diego, where I earned my B.A. in Urban Studies &amp; Planning, I georeferenced 1,788 campus CAD drawings into the campus GIS basemap. I also helped with drone mapping and classified eight land-use categories for a New York study. My research on ethical AI in city operations placed third at the UCSD Urban Expo.</p>
+          <p class="role">Urban data science and GeoAI, based in San Diego</p>
+          <p>My research is about who gets what in cities. When a city can only plant trees, fix streets or fund drainage projects in a few places each year, someone has to decide which neighborhoods go first. I want to know how those rankings get built, whether the data behind them holds up, and who keeps ending up at the bottom of the list.</p>
+          <p>I came to that question through work more than through theory. On stormwater programs for four cities, I kept the geodatabases that ranked Capital Improvement Plan sites, and a fixed set of weights decided which projects moved first. At the American Academy of Pediatrics I joined Census data to infrastructure layers and kept finding the same neighborhoods short on services. At UC San Diego I studied Logan Heights and City Heights, where decisions about freeways and housing were often made without much input from the people who live there.</p>
+          <p>GeoAI, meaning machine learning that pays attention to location, could make those rankings fairer, or it could just make them faster and harder to question. My projects test that with public data: which New York neighborhoods a tree program would reach first, which San Diego housing sites are likely to get built, and how residents might rank repairs themselves. That's the work I want to keep doing in graduate school in New York.</p>
         </div>
-        <dl class="facts">
-          <div><dt>Stormwater</dt><dd>MS4 compliance, BMPs, CIP prioritization</dd></div>
-          <div><dt>Infrastructure</dt><dd>Geodatabases, CAD-to-GIS, drone mapping</dd></div>
-          <div><dt>Wildfire</dt><dd>Risk and erosion analysis</dd></div>
-          <div><dt>Tools</dt><dd>ArcGIS Pro, ArcGIS Online, Python, SQL</dd></div>
-          <div><dt>Research</dt><dd><a href="#research">Questions, methods and data</a></dd></div>
-          <div><dt>Learning now</dt><dd>Esri Spatial Data Science MOOC</dd></div>
-        </dl>
+        <div class="ab-more">
+          <details class="ab-dd" open>
+            <summary>Tools</summary>
+            <dl class="ab-tools">
+              <div><dt>Data science and machine learning</dt><dd>Python (pandas, NumPy, GeoPandas, scikit-learn, LightGBM, SHAP), PySAL spatial statistics, spatial cross-validation</dd></div>
+              <div><dt>Databases</dt><dd>SQL, PostgreSQL with PostGIS, MySQL, SQLite and GeoPackage</dd></div>
+              <div><dt>Cloud</dt><dd>AWS (EC2, S3, IAM, CloudWatch); AWS Solutions Architect Associate course</dd></div>
+              <div><dt>GIS and mapping</dt><dd>ArcGIS Pro, ArcGIS Online, ArcPy, QGIS, Network Analyst, Drone2Map, web maps</dd></div>
+              <div><dt>Dashboards and visualization</dt><dd>Power BI (DAX), Tableau, D3.js, JavaScript, HTML</dd></div>
+              <div><dt>CAD</dt><dd>AutoCAD, Civil 3D, AutoCAD Map 3D</dd></div>
+              <div><dt>Learning now</dt><dd>Esri Spatial Data Science MOOC</dd></div>
+            </dl>
+          </details>
+          <details class="ab-dd">
+            <summary>Work experience</summary>
+            <ul class="ab-list">
+              <li><b>Action Research</b>, Project and Program Associate, Nov 2024 to Apr 2026. Stormwater compliance programs for four municipalities: geodatabases ranking Capital Improvement Plan sites, Power BI dashboards, Python and SQL pipelines.</li>
+              <li><b>UC San Diego Facilities Management</b>, GIS Project Assistant, Sep 2023 to Mar 2024. Georeferenced 1,788 campus CAD drawings and tested drone mapping with Drone2Map.</li>
+              <li><b>American Academy of Pediatrics</b>, R&amp;D Intern, summer 2023. Joined Census and ACS data with infrastructure layers to find service gaps.</li>
+              <li><b>Blue Equinox</b>, Programming Intern, Nov 2021 to Aug 2022. Built Python tools and Power BI dashboards.</li>
+            </ul>
+          </details>
+          <details class="ab-dd">
+            <summary>Education</summary>
+            <ul class="ab-list">
+              <li><b>UC San Diego</b>, B.A. Urban Studies and Planning, 2024. Third place at the UCSD Urban Expo for research on ethical AI in city operations.</li>
+              <li><b>San Diego Miramar College</b>, A.S. Computer Information Science and A.S. Business Administration, 2022.</li>
+            </ul>
+          </details>
+          <details class="ab-dd">
+            <summary>Areas I've worked in</summary>
+            <ul class="ab-list">
+              <li><b>Stormwater:</b> MS4 permit compliance, BMPs, ranking capital projects</li>
+              <li><b>Infrastructure:</b> geodatabases, CAD-to-GIS conversion, drone mapping</li>
+              <li><b>Wildfire:</b> fire risk and erosion analysis</li>
+              <li><b>Research:</b> <a href="#research">my questions, methods and data</a></li>
+            </ul>
+          </details>
+        </div>
       </div>
     </section>
     <section class="track" id="track" aria-labelledby="track-h">
@@ -4282,4 +4312,21 @@ img { border-radius: 4px; }
   setInterval(later, 400);
 })();
 </script>
+<style>
+.ab-more { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.ab-dd { border: 1px solid var(--rule); border-radius: 12px; background: var(--paper-2, #FAF6EC); }
+.ab-dd > summary { list-style: none; cursor: pointer; padding: 13px 16px; font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--ink); }
+.ab-dd > summary::-webkit-details-marker { display: none; }
+.ab-dd > summary::after { content: "+"; font-size: 1.25rem; line-height: 1; color: var(--ink-2); }
+.ab-dd[open] > summary::after { content: "\2212"; }
+.ab-dd > summary:hover { color: var(--leaf, var(--contour)); }
+.ab-dd > :not(summary) { padding: 0 16px 14px; margin: 0; }
+.ab-tools { display: grid; gap: 10px; }
+.ab-tools div { display: grid; gap: 2px; border: 0 !important; padding: 0 !important; grid-template-columns: 1fr !important; }
+.ab-tools dt { font-size: 0.82rem; font-weight: 600; color: var(--ink-2); text-transform: none !important; letter-spacing: 0 !important; }
+.ab-tools dd { margin: 0; font-size: 0.95rem; line-height: 1.5; }
+.ab-list { list-style: none; display: grid; gap: 10px; font-size: 0.95rem; line-height: 1.5; }
+.ab-list li { margin: 0; }
+.about .role { font-size: 1.05rem; }
+</style>
 </body></html>
