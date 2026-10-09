@@ -1662,24 +1662,42 @@ img { border-radius: 4px; }
 <section id="about" aria-labelledby="about-h">
       <div class="sec-head"><h1 class="page-title" id="about-h">About</h1></div>
       <div class="about">
-        <div>
-          <p class="role">Urban data science and GeoAI, based in San Diego</p>
-          <p>My research is about who gets what in cities. When a city can only plant trees, fix streets or fund drainage projects in a few places each year, someone has to decide which neighborhoods go first. I want to know how those rankings get built, whether the data behind them holds up, and who keeps ending up at the bottom of the list.</p>
-          <p>I came to that question through work more than through theory. On stormwater programs for four cities, I kept the geodatabases that ranked Capital Improvement Plan sites, and a fixed set of weights decided which projects moved first. At the American Academy of Pediatrics I joined Census data to infrastructure layers and kept finding the same neighborhoods short on services. At UC San Diego I studied Logan Heights and City Heights, where decisions about freeways and housing were often made without much input from the people who live there.</p>
-          <p>GeoAI, meaning machine learning that pays attention to location, could make those rankings fairer, or it could just make them faster and harder to question. My projects test that with public data: which New York neighborhoods a tree program would reach first, which San Diego housing sites are likely to get built, and how residents might rank repairs themselves. That's the work I want to keep doing in graduate school in New York.</p>
+        <div class="abx">
+          <p class="abx-tag">Urban data science and GeoAI, based in San Diego</p>
+          <p class="abx-lead">My research is about who gets what in cities.</p>
+          <p>When a city can only plant trees, fix streets or fund drainage projects in a few places each year, someone has to decide which neighborhoods go first. I want to know how those rankings get built, whether the data behind them holds up, and who keeps ending up at the bottom of the list.</p>
+
+          <h2 class="abx-h">Where the question came from</h2>
+          <div class="abx-tabs" role="tablist" aria-label="Where the question came from">
+            <button type="button" role="tab" id="abx-t1" aria-controls="abx-p1" aria-selected="true" style="--c:#4F6E4A">Stormwater rankings</button>
+            <button type="button" role="tab" id="abx-t2" aria-controls="abx-p2" aria-selected="false" tabindex="-1" style="--c:#9A6A3A">Mapping service gaps</button>
+            <button type="button" role="tab" id="abx-t3" aria-controls="abx-p3" aria-selected="false" tabindex="-1" style="--c:#7A5C8A">Logan Heights and City Heights</button>
+          </div>
+          <div class="abx-panel" role="tabpanel" id="abx-p1" aria-labelledby="abx-t1" style="--c:#4F6E4A"><p>On stormwater programs for four cities, I kept the geodatabases that ranked Capital Improvement Plan sites. A fixed set of weights decided which projects moved first.</p></div>
+          <div class="abx-panel" role="tabpanel" id="abx-p2" aria-labelledby="abx-t2" style="--c:#9A6A3A" hidden><p>At the American Academy of Pediatrics I joined Census data to infrastructure layers and kept finding the same neighborhoods short on services.</p></div>
+          <div class="abx-panel" role="tabpanel" id="abx-p3" aria-labelledby="abx-t3" style="--c:#7A5C8A" hidden><p>At UC San Diego I studied Logan Heights and City Heights, where decisions about freeways and housing were often made without much input from the people who live there.</p></div>
+
+          <h2 class="abx-h">What I'm testing now</h2>
+          <p>GeoAI, meaning machine learning that pays attention to location, could make those rankings fairer, or it could just make them faster and harder to question. My projects test that with public data:</p>
+          <ul class="abx-proj">
+            <li style="--c:#4F6E4A"><a href="#part-2"><b>Who Gets the Shade?</b><span>Which New York neighborhoods a tree program would reach first</span></a></li>
+            <li style="--c:#9A6A3A"><a href="https://github.com/JohanArisato/housing-site-realization" target="_blank" rel="noopener"><b>Will It Get Built?</b><span>Which San Diego housing sites are likely to see homes</span></a></li>
+            <li style="--c:#7A5C8A"><a href="#proj-curbcall"><b>CurbCall</b><span>How residents might rank street repairs themselves</span></a></li>
+          </ul>
+          <p class="abx-close">That's the work I want to keep doing in graduate school in New York.</p>
         </div>
         <div class="ab-more">
           <details class="ab-dd" open>
             <summary>Tools</summary>
-            <dl class="ab-tools">
-              <div><dt>Data science and machine learning</dt><dd>Python (pandas, NumPy, GeoPandas, scikit-learn, LightGBM, SHAP), PySAL spatial statistics, spatial cross-validation</dd></div>
-              <div><dt>Databases</dt><dd>SQL, PostgreSQL with PostGIS, MySQL, SQLite and GeoPackage</dd></div>
-              <div><dt>Cloud</dt><dd>AWS (EC2, S3, IAM, CloudWatch); AWS Solutions Architect Associate course</dd></div>
-              <div><dt>GIS and mapping</dt><dd>ArcGIS Pro, ArcGIS Online, ArcPy, QGIS, Network Analyst, Drone2Map, web maps</dd></div>
-              <div><dt>Dashboards and visualization</dt><dd>Power BI (DAX), Tableau, D3.js, JavaScript, HTML</dd></div>
-              <div><dt>CAD</dt><dd>AutoCAD, Civil 3D, AutoCAD Map 3D</dd></div>
-              <div><dt>Learning now</dt><dd>Esri Spatial Data Science MOOC</dd></div>
-            </dl>
+            <div class="abx-tools">
+              <div style="--c:#4F6E4A"><h3>Data science and machine learning</h3><ul><li>Python</li><li>pandas</li><li>NumPy</li><li>GeoPandas</li><li>scikit-learn</li><li>LightGBM</li><li>SHAP</li><li>PySAL</li><li>Spatial cross-validation</li></ul></div>
+              <div style="--c:#9A6A3A"><h3>Databases</h3><ul><li>SQL</li><li>PostgreSQL + PostGIS</li><li>MySQL</li><li>SQLite</li><li>GeoPackage</li></ul></div>
+              <div style="--c:#5B7A8C"><h3>Cloud</h3><ul><li>AWS EC2</li><li>S3</li><li>IAM</li><li>CloudWatch</li><li>AWS Solutions Architect course</li></ul></div>
+              <div style="--c:#7A6A3A"><h3>GIS and mapping</h3><ul><li>ArcGIS Pro</li><li>ArcGIS Online</li><li>ArcPy</li><li>QGIS</li><li>Network Analyst</li><li>Drone2Map</li></ul></div>
+              <div style="--c:#7A5C8A"><h3>Dashboards and visualization</h3><ul><li>Power BI (DAX)</li><li>Tableau</li><li>D3.js</li><li>JavaScript</li><li>HTML</li></ul></div>
+              <div style="--c:#6B6157"><h3>CAD</h3><ul><li>AutoCAD</li><li>Civil 3D</li><li>AutoCAD Map 3D</li></ul></div>
+              <p class="abx-learning">Learning now: Esri Spatial Data Science MOOC</p>
+            </div>
           </details>
           <details class="ab-dd">
             <summary>Work experience</summary>
@@ -1688,13 +1706,6 @@ img { border-radius: 4px; }
               <li><b>UC San Diego Facilities Management</b>, GIS Project Assistant, Sep 2023 to Mar 2024. Georeferenced 1,788 campus CAD drawings and tested drone mapping with Drone2Map.</li>
               <li><b>American Academy of Pediatrics</b>, R&amp;D Intern, summer 2023. Joined Census and ACS data with infrastructure layers to find service gaps.</li>
               <li><b>Blue Equinox</b>, Programming Intern, Nov 2021 to Aug 2022. Built Python tools and Power BI dashboards.</li>
-            </ul>
-          </details>
-          <details class="ab-dd">
-            <summary>Education</summary>
-            <ul class="ab-list">
-              <li><b>UC San Diego</b>, B.A. Urban Studies and Planning, 2024. Third place at the UCSD Urban Expo for research on ethical AI in city operations.</li>
-              <li><b>San Diego Miramar College</b>, A.S. Computer Information Science and A.S. Business Administration, 2022.</li>
             </ul>
           </details>
           <details class="ab-dd">
@@ -4321,4 +4332,58 @@ img { border-radius: 4px; }
 .ab-list li { margin: 0; }
 .about .role { font-size: 1.05rem; }
 </style>
+<style>
+/* About: earth palette (sand, soil, moss, clay, ochre) */
+#about-view .about { --soil: #3B3128; --soil-2: #6B5E50; --sand: #F3ECDD; --sand-2: #FBF7EF; --line: #DCCFB8; --moss: #4F6E4A;
+  background: var(--sand) !important; border: 1px solid var(--line) !important; border-radius: 22px !important; padding: clamp(20px, 4vw, 40px) !important;
+  color: var(--soil); grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); backdrop-filter: none !important; }
+.abx p { color: var(--soil); line-height: 1.65; max-width: 60ch; }
+.abx-tag { display: inline-block; margin: 0 0 14px !important; padding: 5px 12px; border-radius: 999px; background: #E6DCC6; color: var(--soil-2) !important; font-size: 0.86rem; font-weight: 600; }
+.abx-lead { font-family: "Literata", "Source Serif 4", Georgia, serif; font-size: clamp(1.5rem, 2.6vw, 1.95rem); line-height: 1.25 !important; font-weight: 600; margin: 0 0 12px !important; color: var(--soil) !important; }
+.abx-h { font-size: 1.05rem !important; font-weight: 700 !important; margin: 28px 0 12px !important; color: var(--soil) !important; text-transform: none !important; letter-spacing: 0 !important; font-family: inherit !important; }
+.abx-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.abx-tabs button { font: inherit; font-size: 0.92rem; font-weight: 600; padding: 9px 15px; border-radius: 999px !important; cursor: pointer;
+  border: 1.5px solid color-mix(in srgb, var(--c) 45%, transparent); background: var(--sand-2); color: var(--c); transition: background-color .2s, color .2s; }
+.abx-tabs button:hover { background: color-mix(in srgb, var(--c) 12%, var(--sand-2)); }
+.abx-tabs button[aria-selected="true"] { background: var(--c); border-color: var(--c); color: #FBF7EF; }
+.abx-tabs button:focus-visible { outline: 2px solid var(--soil); outline-offset: 2px; }
+.abx-panel { margin-top: 12px; padding: 14px 18px; background: var(--sand-2); border-radius: 14px !important; border-left: 4px solid var(--c); animation: abxIn .25s ease; }
+.abx-panel p { margin: 0 !important; }
+@keyframes abxIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.abx-proj { list-style: none; margin: 12px 0 0 !important; padding: 0 !important; display: grid; gap: 8px; }
+.abx-proj a { display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 14px; row-gap: 2px; align-items: baseline; text-decoration: none; padding: 12px 16px; background: var(--sand-2); border: 1px solid var(--line); border-radius: 14px !important; color: var(--soil); transition: border-color .2s, transform .2s; }
+.abx-proj a::before { content: ""; grid-row: 1 / span 2; width: 10px; height: 10px; border-radius: 50% !important; background: var(--c); align-self: center; }
+.abx-proj a:hover { border-color: var(--c); transform: translateX(3px); }
+.abx-proj b { color: var(--soil); }
+.abx-proj span { color: var(--soil-2); font-size: 0.92rem; grid-column: 2; }
+.abx-close { margin-top: 18px !important; font-style: italic; color: var(--soil-2) !important; }
+#about-view .ab-dd { background: var(--sand-2) !important; border: 1px solid var(--line) !important; border-radius: 16px !important; }
+#about-view .ab-dd > summary { color: var(--soil); }
+#about-view .ab-dd > summary:hover { color: var(--moss); }
+#about-view .ab-dd[open] > summary { border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+.abx-tools { display: grid; gap: 14px; }
+.abx-tools h3 { margin: 0 0 6px !important; font-size: 0.8rem !important; font-weight: 700 !important; color: var(--c) !important; font-family: inherit !important; text-transform: none !important; letter-spacing: 0 !important; }
+.abx-tools ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.abx-tools li { font-size: 0.84rem; padding: 4px 10px; border-radius: 999px !important; background: color-mix(in srgb, var(--c) 12%, #FBF7EF); color: var(--soil); border: 1px solid color-mix(in srgb, var(--c) 30%, transparent); }
+.abx-learning { margin: 2px 0 0 !important; font-size: 0.85rem; color: var(--soil-2) !important; }
+#about-view .ab-list li { color: var(--soil); }
+@media (max-width: 860px) { #about-view .about { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .abx-panel { animation: none; } .abx-proj a { transition: none; } }
+</style>
+<script>
+(function aboutTabs() {
+  const tabs = [...document.querySelectorAll('.abx-tabs [role="tab"]')]; if (!tabs.length) return;
+  function pick(t, focus) {
+    tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+    if (focus) t.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => pick(t));
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return;
+      e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true);
+    });
+  });
+})();
+</script>
 </body></html>
