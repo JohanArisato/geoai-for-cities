@@ -67,6 +67,8 @@ a { color: var(--moss); font-weight: 600; text-underline-offset: 3px; }
 textarea, input[type=text] { width: 100%; padding: 12px 14px; font: 400 16px/1.5 var(--sans); color: var(--ink); background: var(--card); border: 1.5px solid var(--rule); border-radius: 0; }
 textarea { min-height: 130px; resize: vertical; }
 textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: none; }
+.why-l { font-size: 0.85rem; font-weight: 600; color: var(--ink-2); margin-top: 6px; }
+textarea.why { min-height: 96px; }
 .opt-note { font-size: 0.85rem; color: var(--ink-2); }
 
 .context { display: grid; gap: 8px; background: var(--pick); border-left: 4px solid var(--moss); padding: 14px 16px; }
@@ -88,11 +90,7 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
 @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
 </style>
 
-
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-</head>
-<body>
-<main class="app">
+</head><body><main class="app">
   <p class="notice" id="notice"><b>Just between us.</b> Your answers come straight to me, Jhoven (Johan), through a private Google Form. Add your name or stay a mystery, your call. I&rsquo;ll only quote you in public, like on LinkedIn, if you give me the green light at the end. Open until <b>October&nbsp;31</b>.</p>
   <div class="progress" id="progress" hidden><div class="bar"><i id="barfill"></i></div><span class="count" id="count"></span></div>
   <section class="screen" id="screen" aria-live="polite"></section>
@@ -114,7 +112,10 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
     { k: 'arcgis', t: 'choice', q: 'What do you know about ArcGIS?', hint: 'ArcGIS is mapping software that cities and planners use to analyze places.', o: ['Never heard of it', 'Heard of it, never used it', 'Used it a little', 'I use it regularly'] },
     { k: 'read', t: 'choice', q: 'No judgment: how much did you read?', o: ['Just the summary', 'Some of the article', 'All of it'] },
     { k: 'define', t: 'short', q: 'Pop quiz, no grades: what is GeoAI, in one sentence?', hint: 'Your own words. A wild guess helps too.', opt: true },
-    { k: 'clarity', t: 'scale', q: 'How clear was it?', lo: 'Lost me', hi: 'Crystal clear' },
+    { k: 'sense', t: 'scalewhy', q: 'Does the material make sense?', hint: 'The ideas and how they’re explained.', lo: 'Lost me', hi: 'Crystal clear' },
+    { k: 'layout', t: 'scalewhy', q: 'How’s the layout?', hint: 'How things are arranged: sections, tables, the map tour.', lo: 'Hard to follow', hi: 'Easy to follow' },
+    { k: 'format', t: 'scalewhy', q: 'How’s the format?', hint: 'Length, headings, tables and figures: the way it’s written up.', lo: 'Didn’t work', hi: 'Worked great' },
+    { k: 'design', t: 'scalewhy', q: 'Do you like the design?', hint: 'Colors, fonts and the overall look.', lo: 'Not for me', hi: 'Love it' },
     { k: 'confusing', t: 'choice', q: 'Where did I lose you?', o: ['What GeoAI is', 'Where it came from', 'What makes AI spatial', 'The building blocks', 'Five things cities do with it', 'Getting started and the risks', 'None'] },
     { k: 'example', t: 'choice', q: 'Which example stuck with you?', o: ['Wildfire cameras (California)', 'Pothole cameras (San José)', 'Road scoring (Indiana)', 'Neighborhood change (nationwide)', 'Restaurant inspections (Chicago)', 'Fire risk (New York)', 'Lead pipes (Flint)', 'None'] },
     { k: 'matters', t: 'scale', q: 'Did I convince you this matters for real cities?', lo: 'Not really', hi: 'Totally sold' },
@@ -137,7 +138,7 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
 
   function intro() {
     scr.innerHTML = '';
-    scr.append(el('p', 'eyebrow', 'About 3 minutes · zero homework'));
+    scr.append(el('p', 'eyebrow', 'About 5 minutes · zero homework'));
     scr.append(el('h1', null, 'Be my first reader?'));
     scr.append(el('p', 'muted', 'First, thank you. It truly means a lot, and it’s an honor, that you’d take a few minutes out of your day to look at my work.'));
     scr.append(el('p', 'muted', 'No AI or map knowledge needed. If something confuses you, that’s exactly what I need to hear.'));
@@ -158,7 +159,7 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
     var a = el('a', null, 'Read the full article ↗'); a.href = ARTICLE; a.target = '_blank'; a.rel = 'noopener';
     s.append(a);
     scr.append(s);
-    var c = el('div', 'chips'); ['14 quick taps', 'Name optional', 'Open until Oct 31'].forEach(function (t) { c.append(el('span', null, t)); });
+    var c = el('div', 'chips'); ['17 quick screens', 'Name optional', 'Open until Oct 31'].forEach(function (t) { c.append(el('span', null, t)); });
     scr.append(c);
   }
 
@@ -166,16 +167,22 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
     var q = Q[i]; scr.innerHTML = '';
     scr.append(el('h2', null, q.q));
     if (q.hint) scr.append(el('p', 'muted', q.hint));
-    if (q.t === 'choice' || q.t === 'scale') {
-      var box = el('div', q.t === 'scale' ? 'scale' : 'opts'); box.setAttribute('role', 'radiogroup'); box.setAttribute('aria-label', q.q);
-      var mx = q.max || 5; var opts = q.t === 'scale' ? Array.from({ length: mx }, function (_, j) { return String(j + 1); }) : q.o;
+    if (q.t === 'choice' || q.t === 'scale' || q.t === 'scalewhy') {
+      var box = el('div', (q.t === 'scale' || q.t === 'scalewhy') ? 'scale' : 'opts'); box.setAttribute('role', 'radiogroup'); box.setAttribute('aria-label', q.q);
+      var mx = q.max || 5; var opts = (q.t === 'scale' || q.t === 'scalewhy') ? Array.from({ length: mx }, function (_, j) { return String(j + 1); }) : q.o;
       opts.forEach(function (o) {
         var b = el('button', 'opt', o); b.type = 'button'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', A[q.k] === o ? 'true' : 'false');
-        b.addEventListener('click', function () { A[q.k] = o; save(); [].forEach.call(box.children, function (x) { x.setAttribute('aria-checked', x === b ? 'true' : 'false'); }); setTimeout(function () { if (step === i) go(1); }, 220); });
+        b.addEventListener('click', function () { A[q.k] = o; save(); [].forEach.call(box.children, function (x) { x.setAttribute('aria-checked', x === b ? 'true' : 'false'); }); if (q.t !== 'scalewhy') setTimeout(function () { if (step === i) go(1); }, 220); });
         box.append(b);
       });
       scr.append(box);
-      if (q.t === 'scale') { var e = el('div', 'ends'); e.append(el('span', null, '1 · ' + q.lo)); e.append(el('span', null, (q.max || 5) + ' · ' + q.hi)); scr.append(e); }
+      if (q.t === 'scale' || q.t === 'scalewhy') { var e = el('div', 'ends'); e.append(el('span', null, '1 · ' + q.lo)); e.append(el('span', null, (q.max || 5) + ' · ' + q.hi)); scr.append(e); }
+      if (q.t === 'scalewhy') {
+        var wl = el('label', 'why-l', 'Why? (optional)'); wl.htmlFor = 'f-' + q.k + '_why';
+        var w = el('textarea'); w.id = 'f-' + q.k + '_why'; w.className = 'why'; w.value = A[q.k + '_why'] || '';
+        w.addEventListener('input', function () { A[q.k + '_why'] = w.value; save(); });
+        scr.append(wl); scr.append(w);
+      }
     } else {
       var f = q.t === 'long' ? el('textarea') : el('input'); if (q.t !== 'long') f.type = 'text';
       f.id = 'f-' + q.k; f.value = A[q.k] || ''; f.setAttribute('aria-label', q.q);
@@ -191,7 +198,7 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
     scr.append(el('h2', null, 'That’s it! Ready to send?'));
     scr.append(el('p', 'muted', 'Tap Send. A private Google Form opens with your answers already filled in. Hit Submit there and you’re done.'));
     var dl = el('dl', 'review');
-    Q.forEach(function (q) { var d = el('div'); d.append(el('dt', null, q.q)); d.append(el('dd', null, (A[q.k] || '').trim() || '(skipped)')); dl.append(d); });
+    Q.forEach(function (q) { var d = el('div'); d.append(el('dt', null, q.q)); var v = (A[q.k] || '').trim() || '(skipped)'; if (q.t === 'scalewhy' && (A[q.k + '_why'] || '').trim()) v += ' · ' + A[q.k + '_why'].trim(); d.append(el('dd', null, v)); dl.append(d); });
     scr.append(dl);
     var m = el('p', 'msg', ''); m.id = 'msg'; scr.append(m);
   }
@@ -205,7 +212,7 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
   function formLink() {
     if (!FORM_URL) return '';
     var p = ['usp=pp_url'];
-    Q.forEach(function (q) { var v = (A[q.k] || '').trim(); if (v && ENTRY[q.k]) p.push(ENTRY[q.k] + '=' + encodeURIComponent(v)); });
+    Q.forEach(function (q) { [q.k, q.k + '_why'].forEach(function (k) { var v = (A[k] || '').trim(); if (v && ENTRY[k]) p.push(ENTRY[k] + '=' + encodeURIComponent(v)); }); });
     return FORM_URL + (FORM_URL.indexOf('?') < 0 ? '?' : '&') + p.join('&');
   }
 
@@ -253,6 +260,4 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
   render();
 })();
 </script>
-
-</body>
-</html>
+</body></html>
