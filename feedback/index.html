@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="A 3-minute, private survey on Johan Fernandez’s article “What Is GeoAI?”. Name optional. Open until October 31.">
+<meta name="description" content="A 3-minute, private survey on Jhoven (Johan) Fernandez’s article “What Is GeoAI?”. Name optional. Open until October 31.">
 <meta property="og:title" content="Be my first reader? · What Is GeoAI?">
-<meta property="og:description" content="3 minutes, name optional, open until Oct 31. Help Johan sharpen his research before it goes to grad school admissions committees.">
+<meta property="og:description" content="3 minutes, name optional, open until Oct 31. Help Jhoven (Johan) sharpen his research before it goes to grad school admissions committees.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#3D5A36">
 <title>GeoAI Article Review</title>
@@ -93,7 +93,7 @@ textarea.why { min-height: 96px; }
 </style>
 
 </head><body><main class="app">
-  <p class="notice" id="notice"><b>Just between us.</b> Your answers come straight to me, Johan, by email. Add your name or stay a mystery, your call. I&rsquo;ll only quote you in public if you give me the green light at the end. Open until <b>October&nbsp;31</b>.</p>
+  <p class="notice" id="notice"><b>Just between us.</b> Your answers come straight to me, Jhoven (Johan), by email. Add your name or stay a mystery, your call. I&rsquo;ll only quote you in public if you give me the green light at the end. Open until <b>October&nbsp;31</b>.</p>
   <div class="progress" id="progress" hidden><div class="bar"><i id="barfill"></i></div><span class="count" id="count"></span></div>
   <section class="screen" id="screen" aria-live="polite"></section>
 </main>
@@ -270,10 +270,10 @@ textarea.why { min-height: 96px; }
       var url = formLink();
       if (url) {
         next.hidden = true;
-        var a = el('a', 'btn main', 'Send to Johan'); a.id = 'sendlink'; a.href = url; if (FORM_URL) { a.target = '_blank'; a.rel = 'noopener'; }
+        var a = el('a', 'btn main', 'Send to Jhoven (Johan)'); a.id = 'sendlink'; a.href = url; if (FORM_URL) { a.target = '_blank'; a.rel = 'noopener'; }
         a.addEventListener('click', function () { setTimeout(function () { step = n + 1; render(); }, 400); });
         next.parentNode.append(a);
-      } else { next.textContent = 'Send to Johan'; next.setAttribute('aria-disabled', 'true'); }
+      } else { next.textContent = 'Send to Jhoven (Johan)'; next.setAttribute('aria-disabled', 'true'); }
     } else { done(); next.textContent = 'Start over'; }
     var f = scr.querySelector('input,textarea'); if (f && window.matchMedia('(min-width: 700px)').matches) f.focus();
     window.scrollTo(0, 0);
