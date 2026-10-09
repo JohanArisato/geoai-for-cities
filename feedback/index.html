@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="A 3-minute, private survey on Jhoven (Johan) Fernandez’s article “What Is GeoAI?”. Name optional. Open until October 31.">
+<meta name="description" content="A 3-minute, private survey on Johan Fernandez’s article “What Is GeoAI?”. Name optional. Open until October 31.">
 <meta property="og:title" content="Be my first reader? · What Is GeoAI?">
-<meta property="og:description" content="3 minutes, name optional, open until Oct 31. Help Jhoven (Johan) sharpen his research before it goes to grad school admissions committees.">
+<meta property="og:description" content="3 minutes, name optional, open until Oct 31. Help Johan sharpen his research before it goes to grad school admissions committees.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#3D5A36">
 <title>GeoAI Article Review</title>
@@ -93,7 +93,7 @@ textarea.why { min-height: 96px; }
 </style>
 
 </head><body><main class="app">
-  <p class="notice" id="notice"><b>Just between us.</b> Your answers come straight to me, Jhoven (Johan), through a private Google Form. Add your name or stay a mystery, your call. I&rsquo;ll only quote you in public, like on LinkedIn, if you give me the green light at the end. Open until <b>October&nbsp;31</b>.</p>
+  <p class="notice" id="notice"><b>Just between us.</b> Your answers come straight to me, Johan, by email. Add your name or stay a mystery, your call. I&rsquo;ll only quote you in public if you give me the green light at the end. Open until <b>October&nbsp;31</b>.</p>
   <div class="progress" id="progress" hidden><div class="bar"><i id="barfill"></i></div><span class="count" id="count"></span></div>
   <section class="screen" id="screen" aria-live="polite"></section>
 </main>
@@ -107,6 +107,7 @@ textarea.why { min-height: 96px; }
   /* ---- set these once the Google Form exists ---- */
   var FORM_URL = '';          // e.g. https://docs.google.com/forms/d/e/XXXX/viewform
   var ENTRY = {};             // question key -> 'entry.123456789' (from the form's pre-filled link)
+  var EMAIL = 'jhoven.jan98@gmail.com'; // shown on the site's contact section
   var ARTICLE = 'https://claude.ai/artifact/Qzr3BxEvkkkftM73TKukDs#part-1';
 
   var Q = [
@@ -128,7 +129,7 @@ textarea.why { min-height: 96px; }
       { k: 'industry', q: 'What field is your background in?', o: ['Tech, data or engineering', 'Planning, government or public service', 'Education or research', 'Health or social services', 'Business, finance or sales', 'Arts, media or design', 'Trades, construction or real estate', 'Other'] }
     ] },
     { k: 'name', t: 'short', q: 'Want a shout-out? Add your name', hint: 'Totally optional. Leave it blank to stay anonymous.', opt: true },
-    { k: 'quote', t: 'choice', q: 'Can I quote you in a public post, like on LinkedIn?', o: ['No, keep it private', 'Yes, quote me without my name', 'Yes, you can use my name'], def: 'No, keep it private' }
+    { k: 'quote', t: 'choice', q: 'Can I quote you in a public post?', o: ['No, keep it private', 'Yes, quote me without my name', 'Yes, you can use my name'], def: 'No, keep it private' }
   ];
 
   var A = {}; try { A = JSON.parse(localStorage.getItem('geoai-survey') || '{}') || {}; } catch (e) { A = {}; }
@@ -149,7 +150,7 @@ textarea.why { min-height: 96px; }
     var ctx = el('div', 'context');
     ctx.append(el('p', 'ctx-h', 'What I’m working toward'));
     ctx.append(el('p', null, 'I’m applying to PhD programs to study GeoAI: how location-aware AI can help cities decide where to invest, and who benefits when they do.'));
-    ctx.append(el('p', null, '“What Is GeoAI?” is the first of several publications I’ll be putting out, shared on LinkedIn and presented to graduate admissions committees and review boards. Your feedback shapes this one and every one that follows.'));
+    ctx.append(el('p', null, '“What Is GeoAI?” is the first of several publications I’ll be putting out, shared publicly and with graduate admissions committees. Your feedback shapes this one and every one that follows.'));
     scr.append(ctx);
     var s = el('div', 'summary');
     s.append(el('p', null, 'The article in 30 seconds'));
@@ -160,7 +161,7 @@ textarea.why { min-height: 96px; }
      'Cities use it to see, find, measure, predict and decide, from wildfire cameras in California to lead pipes in Flint.',
      'The risk: it moves decisions earlier, so it moves mistakes earlier too.'].forEach(function (t) { ul.append(el('li', null, t)); });
     s.append(ul);
-    var a = el('a', null, 'Read the full article ↗'); a.href = ARTICLE; a.target = '_blank'; a.rel = 'noopener';
+    var a = el('a', null, 'Read the full article ↗'); a.href = ARTICLE; if (FORM_URL) { a.target = '_blank'; a.rel = 'noopener'; }
     s.append(a);
     scr.append(s);
     var c = el('div', 'chips'); ['16 quick screens', 'Name optional', 'Open until Oct 31'].forEach(function (t) { c.append(el('span', null, t)); });
@@ -214,7 +215,7 @@ textarea.why { min-height: 96px; }
   function review() {
     scr.innerHTML = '';
     scr.append(el('h2', null, 'That’s it! Ready to send?'));
-    scr.append(el('p', 'muted', 'Tap Send. A private Google Form opens with your answers already filled in. Hit Submit there and you’re done.'));
+    scr.append(el('p', 'muted', 'Tap Send. Your email app opens with your answers already written in. Hit send there and you’re done.'));
     var dl = el('dl', 'review');
     flat().forEach(function (q) { var d = el('div'); d.append(el('dt', null, q.q)); var v = (A[q.k] || '').trim() || '(skipped)'; if (q.t === 'scalewhy' && (A[q.k + '_why'] || '').trim()) v += ' · ' + A[q.k + '_why'].trim(); d.append(el('dd', null, v)); dl.append(d); });
     scr.append(dl);
@@ -224,13 +225,22 @@ textarea.why { min-height: 96px; }
   function done() {
     scr.innerHTML = '';
     scr.append(el('h1', null, 'Thank you, truly'));
-    scr.append(el('p', 'muted', 'It’s an honor that you gave part of your day to my work, and I don’t take that lightly. Once you hit Submit on the form, your answers reach me, and every one of them helps me sharpen this before it goes to admissions committees and onto LinkedIn. I’ll share the final version when it’s done.'));
+    scr.append(el('p', 'muted', 'It’s an honor that you gave part of your day to my work, and I don’t take that lightly. Once you hit send in your email, your answers reach me, and every one of them helps me sharpen this before it goes to admissions committees. I’ll share the final version when it’s done.'));
   }
 
   function flat() { var r = []; Q.forEach(function (q) { if (q.t === 'group') r.push.apply(r, q.parts); else r.push(q); }); return r; }
 
+  function mailLink() {
+    var lines = [];
+    flat().forEach(function (q) {
+      var v = (A[q.k] || '').trim() || '(skipped)';
+      if ((A[q.k + '_why'] || '').trim()) v += ' / why: ' + A[q.k + '_why'].trim();
+      lines.push('[' + q.k + '] ' + q.q + '\n' + v);
+    });
+    return 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('GeoAI survey response') + '&body=' + encodeURIComponent(lines.join('\n\n'));
+  }
   function formLink() {
-    if (!FORM_URL) return '';
+    if (!FORM_URL) return mailLink();
     var p = ['usp=pp_url'];
     flat().forEach(function (q) { [q.k, q.k + '_why'].forEach(function (k) { var v = (A[k] || '').trim(); if (v && ENTRY[k]) p.push(ENTRY[k] + '=' + encodeURIComponent(v)); }); });
     return FORM_URL + (FORM_URL.indexOf('?') < 0 ? '?' : '&') + p.join('&');
@@ -260,10 +270,10 @@ textarea.why { min-height: 96px; }
       var url = formLink();
       if (url) {
         next.hidden = true;
-        var a = el('a', 'btn main', 'Send to Jhoven ↗'); a.id = 'sendlink'; a.href = url; a.target = '_blank'; a.rel = 'noopener';
+        var a = el('a', 'btn main', 'Send to Johan'); a.id = 'sendlink'; a.href = url; if (FORM_URL) { a.target = '_blank'; a.rel = 'noopener'; }
         a.addEventListener('click', function () { setTimeout(function () { step = n + 1; render(); }, 400); });
         next.parentNode.append(a);
-      } else { next.textContent = 'Send to Jhoven'; next.setAttribute('aria-disabled', 'true'); }
+      } else { next.textContent = 'Send to Johan'; next.setAttribute('aria-disabled', 'true'); }
     } else { done(); next.textContent = 'Start over'; }
     var f = scr.querySelector('input,textarea'); if (f && window.matchMedia('(min-width: 700px)').matches) f.focus();
     window.scrollTo(0, 0);
