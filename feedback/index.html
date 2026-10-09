@@ -93,7 +93,7 @@ textarea.why { min-height: 96px; }
 </style>
 
 </head><body><main class="app">
-  <p class="notice" id="notice"><b>Just between us.</b> Your answers come straight to me, Jhoven (Johan), by email. Add your name or stay a mystery, your call. I&rsquo;ll only quote you in public if you give me the green light at the end. Open until <b>October&nbsp;31</b>.</p>
+  <p class="notice" id="notice"><b>Just between us.</b> Your answers come straight to me, Jhoven (Johan), when you tap Send. Add your name or stay a mystery, your call. I&rsquo;ll only quote you in public if you give me the green light at the end. Open until <b>October&nbsp;31</b>.</p>
   <div class="progress" id="progress" hidden><div class="bar"><i id="barfill"></i></div><span class="count" id="count"></span></div>
   <section class="screen" id="screen" aria-live="polite"></section>
 </main>
@@ -215,7 +215,7 @@ textarea.why { min-height: 96px; }
   function review() {
     scr.innerHTML = '';
     scr.append(el('h2', null, 'That’s it! Ready to send?'));
-    scr.append(el('p', 'muted', 'Tap Send. Your email app opens with your answers already written in. Hit send there and you’re done.'));
+    scr.append(el('p', 'muted', 'Tap Send and your answers come straight to me. Nothing else to do.'));
     var dl = el('dl', 'review');
     flat().forEach(function (q) { var d = el('div'); d.append(el('dt', null, q.q)); var v = (A[q.k] || '').trim() || '(skipped)'; if (q.t === 'scalewhy' && (A[q.k + '_why'] || '').trim()) v += ' · ' + A[q.k + '_why'].trim(); d.append(el('dd', null, v)); dl.append(d); });
     scr.append(dl);
@@ -225,7 +225,7 @@ textarea.why { min-height: 96px; }
   function done() {
     scr.innerHTML = '';
     scr.append(el('h1', null, 'Thank you, truly'));
-    scr.append(el('p', 'muted', 'It’s an honor that you gave part of your day to my work, and I don’t take that lightly. Once you hit send in your email, your answers reach me, and every one of them helps me sharpen this before it goes to admissions committees. I’ll share the final version when it’s done.'));
+    scr.append(el('p', 'muted', 'It’s an honor that you gave part of your day to my work, and I don’t take that lightly. Your answers are on their way to me, and every one of them helps me sharpen this before it goes to admissions committees. I’ll share the final version when it’s done.'));
   }
 
   function flat() { var r = []; Q.forEach(function (q) { if (q.t === 'group') r.push.apply(r, q.parts); else r.push(q); }); return r; }
@@ -238,6 +238,42 @@ textarea.why { min-height: 96px; }
       lines.push('[' + q.k + '] ' + q.q + '\n' + v);
     });
     return 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('GeoAI survey response') + '&body=' + encodeURIComponent(lines.join('\n\n'));
+  }
+  /* Send answers straight to Jhoven (Johan): posted to FormSubmit, which emails them to EMAIL. */
+  var ENDPOINT = 'https://formsubmit.co/ajax/' + EMAIL;
+  var sending = false;
+  function payload() {
+    var o = { v: 1 };
+    flat().forEach(function (q) { [q.k, q.k + '_why'].forEach(function (k) { var v = (A[k] || '').trim(); if (v) o[k] = v; }); });
+    var b64 = btoa(unescape(encodeURIComponent(JSON.stringify(o))));
+    return { o: o, b64: b64 };
+  }
+  function submit() {
+    if (sending) return;
+    sending = true;
+    var m = document.getElementById('msg');
+    next.textContent = 'Sending…'; next.setAttribute('aria-disabled', 'true');
+    var p = payload();
+    var lines = [];
+    flat().forEach(function (q) { var v = (A[q.k] || '').trim() || '(skipped)'; if ((A[q.k + '_why'] || '').trim()) v += ' / why: ' + A[q.k + '_why'].trim(); lines.push(q.q + ': ' + v); });
+    var body = {
+      _subject: 'GeoAI survey response',
+      _template: 'box',
+      _captcha: 'false',
+      name: p.o.name || 'Anonymous',
+      answers: lines.join('\n'),
+      data: 'SURVEY::' + p.b64 + '::END'
+    };
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'Send failed'); }); })
+      .then(function () { sending = false; next.removeAttribute('aria-disabled'); step = Q.length + 1; render(); })
+      .catch(function () {
+        sending = false; next.removeAttribute('aria-disabled'); next.textContent = 'Try again';
+        if (m) {
+          m.textContent = 'That didn’t go through. Check your connection and tap Try again. Your answers are saved on this phone. ';
+          var a = el('a', null, 'Or send them by email instead'); a.href = mailLink(); m.append(a);
+        }
+      });
   }
   function formLink() {
     if (!FORM_URL) return mailLink();
@@ -267,13 +303,14 @@ textarea.why { min-height: 96px; }
     else if (step < n) { question(step); var q = Q[step]; next.textContent = (q.opt && !(A[q.k] || '').trim()) ? 'Skip' : 'Next'; }
     else if (step === n) {
       review();
-      var url = formLink();
+      var url = FORM_URL ? formLink() : '';
+      next.textContent = 'Send to Jhoven (Johan)';
       if (url) {
         next.hidden = true;
         var a = el('a', 'btn main', 'Send to Jhoven (Johan)'); a.id = 'sendlink'; a.href = url; if (FORM_URL) { a.target = '_blank'; a.rel = 'noopener'; }
         a.addEventListener('click', function () { setTimeout(function () { step = n + 1; render(); }, 400); });
         next.parentNode.append(a);
-      } else { next.textContent = 'Send to Jhoven (Johan)'; next.setAttribute('aria-disabled', 'true'); }
+      }
     } else { done(); next.textContent = 'Start over'; }
     var f = scr.querySelector('input,textarea'); if (f && window.matchMedia('(min-width: 700px)').matches) f.focus();
     window.scrollTo(0, 0);
@@ -281,7 +318,7 @@ textarea.why { min-height: 96px; }
 
   function go(d) { step = Math.max(-1, Math.min(Q.length + 1, step + d)); render(); }
   next.addEventListener('click', function () {
-    if (step === Q.length) { if (!FORM_URL) { var m = document.getElementById('msg'); if (m) m.textContent = 'Almost ready! The form is still being set up. Your answers are saved on this phone, so come back soon and send them.'; } return; }
+    if (step === Q.length) { if (!FORM_URL) submit(); return; }
     if (step === Q.length + 1) { A = {}; Q.forEach(function (q) { if (q.def) A[q.k] = q.def; }); save(); step = -1; render(); return; }
     go(1);
   });
