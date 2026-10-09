@@ -88,6 +88,8 @@ textarea.why { min-height: 96px; }
 .btn[aria-disabled="true"] { opacity: 0.55; }
 .msg { font-size: 0.9rem; color: var(--clay); min-height: 1.2em; margin: 0; }
 @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+.sub-q { margin: 22px 0 10px; font-size: 1.02rem; font-weight: 600; line-height: 1.35; }
+.sub-q:first-of-type { margin-top: 14px; }
 </style>
 
 </head><body><main class="app">
@@ -121,8 +123,10 @@ textarea.why { min-height: 96px; }
     { k: 'matters', t: 'scale', q: 'Did I convince you this matters for real cities?', lo: 'Not really', hi: 'Totally sold' },
     { k: 'doubt', t: 'long', q: 'Did anything sound too good to be true, or need more proof?', opt: true },
     { k: 'change', t: 'long', q: 'If you were my editor, what’s one thing you’d change?', opt: true },
-    { k: 'occupation', t: 'choice', q: 'What best describes you right now?', o: ['Student', 'Graduate student', 'Working professional', 'Retired', 'Other'] },
-    { k: 'industry', t: 'choice', q: 'What field is your background in?', hint: 'Helps me see how the article lands with different readers.', o: ['Tech, data or engineering', 'Planning, government or public service', 'Education or research', 'Health or social services', 'Business, finance or sales', 'Arts, media or design', 'Trades, construction or real estate', 'Other'] },
+    { k: 'about', t: 'group', q: 'A little about you', hint: 'Helps me see how the article lands with different readers.', parts: [
+      { k: 'occupation', q: 'What best describes you right now?', o: ['Student', 'Graduate student', 'Working professional', 'Retired', 'Other'] },
+      { k: 'industry', q: 'What field is your background in?', o: ['Tech, data or engineering', 'Planning, government or public service', 'Education or research', 'Health or social services', 'Business, finance or sales', 'Arts, media or design', 'Trades, construction or real estate', 'Other'] }
+    ] },
     { k: 'name', t: 'short', q: 'Want a shout-out? Add your name', hint: 'Totally optional. Leave it blank to stay anonymous.', opt: true },
     { k: 'quote', t: 'choice', q: 'Can I quote you in a public post, like on LinkedIn?', o: ['No, keep it private', 'Yes, quote me without my name', 'Yes, you can use my name'], def: 'No, keep it private' }
   ];
@@ -159,7 +163,7 @@ textarea.why { min-height: 96px; }
     var a = el('a', null, 'Read the full article ↗'); a.href = ARTICLE; a.target = '_blank'; a.rel = 'noopener';
     s.append(a);
     scr.append(s);
-    var c = el('div', 'chips'); ['17 quick screens', 'Name optional', 'Open until Oct 31'].forEach(function (t) { c.append(el('span', null, t)); });
+    var c = el('div', 'chips'); ['16 quick screens', 'Name optional', 'Open until Oct 31'].forEach(function (t) { c.append(el('span', null, t)); });
     scr.append(c);
   }
 
@@ -167,7 +171,21 @@ textarea.why { min-height: 96px; }
     var q = Q[i]; scr.innerHTML = '';
     scr.append(el('h2', null, q.q));
     if (q.hint) scr.append(el('p', 'muted', q.hint));
-    if (q.t === 'choice' || q.t === 'scale' || q.t === 'scalewhy') {
+    if (q.t === 'group') {
+      q.parts.forEach(function (p) {
+        var h = el('h3', 'sub-q', p.q); scr.append(h);
+        var gb = el('div', 'opts'); gb.setAttribute('role', 'radiogroup'); gb.setAttribute('aria-label', p.q);
+        p.o.forEach(function (o) {
+          var b = el('button', 'opt', o); b.type = 'button'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', A[p.k] === o ? 'true' : 'false');
+          b.addEventListener('click', function () {
+            A[p.k] = o; save(); [].forEach.call(gb.children, function (x) { x.setAttribute('aria-checked', x === b ? 'true' : 'false'); });
+            if (q.parts.every(function (r) { return A[r.k]; }) && p === q.parts[q.parts.length - 1]) setTimeout(function () { if (step === i) go(1); }, 260);
+          });
+          gb.append(b);
+        });
+        scr.append(gb);
+      });
+    } else if (q.t === 'choice' || q.t === 'scale' || q.t === 'scalewhy') {
       var box = el('div', (q.t === 'scale' || q.t === 'scalewhy') ? 'scale' : 'opts'); box.setAttribute('role', 'radiogroup'); box.setAttribute('aria-label', q.q);
       var mx = q.max || 5; var opts = (q.t === 'scale' || q.t === 'scalewhy') ? Array.from({ length: mx }, function (_, j) { return String(j + 1); }) : q.o;
       opts.forEach(function (o) {
@@ -198,7 +216,7 @@ textarea.why { min-height: 96px; }
     scr.append(el('h2', null, 'That’s it! Ready to send?'));
     scr.append(el('p', 'muted', 'Tap Send. A private Google Form opens with your answers already filled in. Hit Submit there and you’re done.'));
     var dl = el('dl', 'review');
-    Q.forEach(function (q) { var d = el('div'); d.append(el('dt', null, q.q)); var v = (A[q.k] || '').trim() || '(skipped)'; if (q.t === 'scalewhy' && (A[q.k + '_why'] || '').trim()) v += ' · ' + A[q.k + '_why'].trim(); d.append(el('dd', null, v)); dl.append(d); });
+    flat().forEach(function (q) { var d = el('div'); d.append(el('dt', null, q.q)); var v = (A[q.k] || '').trim() || '(skipped)'; if (q.t === 'scalewhy' && (A[q.k + '_why'] || '').trim()) v += ' · ' + A[q.k + '_why'].trim(); d.append(el('dd', null, v)); dl.append(d); });
     scr.append(dl);
     var m = el('p', 'msg', ''); m.id = 'msg'; scr.append(m);
   }
@@ -209,10 +227,12 @@ textarea.why { min-height: 96px; }
     scr.append(el('p', 'muted', 'It’s an honor that you gave part of your day to my work, and I don’t take that lightly. Once you hit Submit on the form, your answers reach me, and every one of them helps me sharpen this before it goes to admissions committees and onto LinkedIn. I’ll share the final version when it’s done.'));
   }
 
+  function flat() { var r = []; Q.forEach(function (q) { if (q.t === 'group') r.push.apply(r, q.parts); else r.push(q); }); return r; }
+
   function formLink() {
     if (!FORM_URL) return '';
     var p = ['usp=pp_url'];
-    Q.forEach(function (q) { [q.k, q.k + '_why'].forEach(function (k) { var v = (A[k] || '').trim(); if (v && ENTRY[k]) p.push(ENTRY[k] + '=' + encodeURIComponent(v)); }); });
+    flat().forEach(function (q) { [q.k, q.k + '_why'].forEach(function (k) { var v = (A[k] || '').trim(); if (v && ENTRY[k]) p.push(ENTRY[k] + '=' + encodeURIComponent(v)); }); });
     return FORM_URL + (FORM_URL.indexOf('?') < 0 ? '?' : '&') + p.join('&');
   }
 
