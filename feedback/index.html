@@ -110,7 +110,8 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
   var ARTICLE = 'https://claude.ai/artifact/Qzr3BxEvkkkftM73TKukDs#part-1';
 
   var Q = [
-    { k: 'fam', t: 'choice', q: 'First things first: how comfy are you with AI or maps?', o: ['Not at all', 'A little', 'Very'] },
+    { k: 'ai', t: 'scale', max: 10, q: 'First things first: how much do you use artificial intelligence (AI)?', hint: 'Think ChatGPT, Claude, Siri, smart assistants.', lo: 'Never', hi: 'Every day' },
+    { k: 'arcgis', t: 'choice', q: 'What do you know about ArcGIS?', hint: 'ArcGIS is mapping software that cities and planners use to analyze places.', o: ['Never heard of it', 'Heard of it, never used it', 'Used it a little', 'I use it regularly'] },
     { k: 'read', t: 'choice', q: 'No judgment: how much did you read?', o: ['Just the summary', 'Some of the article', 'All of it'] },
     { k: 'define', t: 'short', q: 'Pop quiz, no grades: what is GeoAI, in one sentence?', hint: 'Your own words. A wild guess helps too.', opt: true },
     { k: 'clarity', t: 'scale', q: 'How clear was it?', lo: 'Lost me', hi: 'Crystal clear' },
@@ -157,7 +158,7 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
     var a = el('a', null, 'Read the full article ↗'); a.href = ARTICLE; a.target = '_blank'; a.rel = 'noopener';
     s.append(a);
     scr.append(s);
-    var c = el('div', 'chips'); ['13 quick taps', 'Name optional', 'Open until Oct 31'].forEach(function (t) { c.append(el('span', null, t)); });
+    var c = el('div', 'chips'); ['14 quick taps', 'Name optional', 'Open until Oct 31'].forEach(function (t) { c.append(el('span', null, t)); });
     scr.append(c);
   }
 
@@ -167,14 +168,14 @@ textarea:focus, input[type=text]:focus { border-color: var(--moss); outline: non
     if (q.hint) scr.append(el('p', 'muted', q.hint));
     if (q.t === 'choice' || q.t === 'scale') {
       var box = el('div', q.t === 'scale' ? 'scale' : 'opts'); box.setAttribute('role', 'radiogroup'); box.setAttribute('aria-label', q.q);
-      var opts = q.t === 'scale' ? ['1', '2', '3', '4', '5'] : q.o;
+      var mx = q.max || 5; var opts = q.t === 'scale' ? Array.from({ length: mx }, function (_, j) { return String(j + 1); }) : q.o;
       opts.forEach(function (o) {
         var b = el('button', 'opt', o); b.type = 'button'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', A[q.k] === o ? 'true' : 'false');
         b.addEventListener('click', function () { A[q.k] = o; save(); [].forEach.call(box.children, function (x) { x.setAttribute('aria-checked', x === b ? 'true' : 'false'); }); setTimeout(function () { if (step === i) go(1); }, 220); });
         box.append(b);
       });
       scr.append(box);
-      if (q.t === 'scale') { var e = el('div', 'ends'); e.append(el('span', null, '1 · ' + q.lo)); e.append(el('span', null, '5 · ' + q.hi)); scr.append(e); }
+      if (q.t === 'scale') { var e = el('div', 'ends'); e.append(el('span', null, '1 · ' + q.lo)); e.append(el('span', null, (q.max || 5) + ' · ' + q.hi)); scr.append(e); }
     } else {
       var f = q.t === 'long' ? el('textarea') : el('input'); if (q.t !== 'long') f.type = 'text';
       f.id = 'f-' + q.k; f.value = A[q.k] || ''; f.setAttribute('aria-label', q.q);
