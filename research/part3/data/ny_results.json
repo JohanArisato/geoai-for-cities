@@ -1,0 +1,201 @@
+{
+ "zips_used": 177,
+ "zips_matched": 173,
+ "neighborhoods": 42,
+ "households": 2684092,
+ "citywide": {
+  "summer_kwh": 466.8,
+  "shoulder_kwh": 280.1,
+  "cooling_kwh": 186.8,
+  "peak_kw": 1.311,
+  "summer_vs_shoulder_pct": 66.7
+ },
+ "corr": {
+  "cooling_kwh": {
+   "surf_temp_f": -0.67,
+   "canopy_pct": 0.41,
+   "poverty_pct": -0.31,
+   "heat_ed_rate": 0.08
+  },
+  "peak_kw": {
+   "surf_temp_f": -0.67,
+   "canopy_pct": 0.38,
+   "poverty_pct": -0.41,
+   "heat_ed_rate": 0.05
+  }
+ },
+ "ols_cooling_kwh": {
+  "r2": 0.457,
+  "surf_temp_f": {
+   "b": -19.937,
+   "p": 0.0005
+  },
+  "canopy_pct": {
+   "b": -0.439,
+   "p": 0.7426
+  },
+  "poverty_pct": {
+   "b": 0.354,
+   "p": 0.4947
+  }
+ },
+ "ols_cooling_kwh_boro_fe": {
+  "r2": 0.733,
+  "surf_temp_f": {
+   "b": -9.661,
+   "p": 0.0168
+  },
+  "canopy_pct": {
+   "b": -0.826,
+   "p": 0.2929
+  },
+  "poverty_pct": {
+   "b": -0.019,
+   "p": 0.9783
+  }
+ },
+ "ols_peak_kw": {
+  "r2": 0.463,
+  "surf_temp_f": {
+   "b": -0.131,
+   "p": 0.001
+  },
+  "canopy_pct": {
+   "b": -0.004,
+   "p": 0.6641
+  },
+  "poverty_pct": {
+   "b": -0.003,
+   "p": 0.5014
+  }
+ },
+ "ols_peak_kw_boro_fe": {
+  "r2": 0.826,
+  "surf_temp_f": {
+   "b": -0.063,
+   "p": 0.0268
+  },
+  "canopy_pct": {
+   "b": -0.008,
+   "p": 0.1757
+  },
+  "poverty_pct": {
+   "b": -0.005,
+   "p": 0.2583
+  }
+ },
+ "cooling_kwh_linear_r2_random": 0.29,
+ "cooling_kwh_linear_r2_borough": 0.01,
+ "cooling_kwh_forest_r2_random": 0.26,
+ "cooling_kwh_forest_r2_borough": -0.09,
+ "peak_kw_linear_r2_random": 0.38,
+ "peak_kw_linear_r2_borough": -0.11,
+ "peak_kw_forest_r2_random": 0.35,
+ "peak_kw_forest_r2_borough": -0.11,
+ "top5_cooling": [
+  [
+   "South Beach - Tottenville",
+   "Staten Island",
+   450.35,
+   2.94,
+   31.96,
+   7.65
+  ],
+  [
+   "Willowbrook",
+   "Staten Island",
+   331.98,
+   2.51,
+   30.9,
+   9.57
+  ],
+  [
+   "Stapleton - St. George",
+   "Staten Island",
+   305.74,
+   2.0,
+   30.09,
+   18.67
+  ],
+  [
+   "Rockaway",
+   "Queens",
+   260.0,
+   1.92,
+   13.26,
+   19.48
+  ],
+  [
+   "Port  Richmond",
+   "Staten Island",
+   249.89,
+   2.11,
+   21.59,
+   22.13
+  ]
+ ],
+ "bottom5_cooling": [
+  [
+   "Bedford Stuyvesant - Crown Heights",
+   "Brooklyn",
+   148.93,
+   1.09,
+   17.59,
+   25.92
+  ],
+  [
+   "Union Square - Lower East Side",
+   "Manhattan",
+   147.66,
+   1.05,
+   20.6,
+   21.35
+  ],
+  [
+   "Long Island City - Astoria",
+   "Queens",
+   138.35,
+   1.09,
+   10.41,
+   14.61
+  ],
+  [
+   "Greenpoint",
+   "Brooklyn",
+   128.13,
+   1.26,
+   8.85,
+   22.79
+  ],
+  [
+   "East Flatbush - Flatbush",
+   "Brooklyn",
+   124.96,
+   1.15,
+   21.02,
+   17.03
+  ]
+ ],
+ "by_borough": {
+  "Bronx": {
+   "cooling_kwh": 175.7,
+   "peak_kw": 1.143
+  },
+  "Brooklyn": {
+   "cooling_kwh": 167.0,
+   "peak_kw": 1.246
+  },
+  "Manhattan": {
+   "cooling_kwh": 177.2,
+   "peak_kw": 1.165
+  },
+  "Queens": {
+   "cooling_kwh": 185.2,
+   "peak_kw": 1.347
+  },
+  "Staten Island": {
+   "cooling_kwh": 364.6,
+   "peak_kw": 2.508
+  }
+ }
+}

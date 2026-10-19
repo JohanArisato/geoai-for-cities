@@ -1,0 +1,224 @@
+{
+ "ny_n_zips": 172,
+ "ny_corr": {
+  "cooling_kwh": {
+   "sqft_per_unit": 0.66,
+   "pct_units_1_2_family": 0.48,
+   "surf_temp_f": -0.57,
+   "canopy_pct": 0.41,
+   "poverty_pct": -0.25
+  },
+  "peak_kw": {
+   "sqft_per_unit": 0.81,
+   "pct_units_1_2_family": 0.65,
+   "surf_temp_f": -0.57,
+   "canopy_pct": 0.43,
+   "poverty_pct": -0.37
+  }
+ },
+ "ny_cooling_kwh_heat_shade": {
+  "r2": 0.34,
+  "surf_temp_f": {
+   "b": -19.948,
+   "p": 0.0102
+  },
+  "canopy_pct": {
+   "b": -0.411,
+   "p": 0.7026
+  },
+  "poverty_pct": {
+   "b": 0.321,
+   "p": 0.5644
+  }
+ },
+ "ny_cooling_kwh_heat_shade_cv": {
+  "linear_random": 0.28,
+  "linear_heldout": -0.15,
+  "forest_random": 0.58,
+  "forest_heldout": 0.0
+ },
+ "ny_cooling_kwh_housing": {
+  "r2": 0.49,
+  "sqft_per_unit": {
+   "b": 0.222,
+   "p": 0.0014
+  },
+  "pct_units_1_2_family": {
+   "b": 0.629,
+   "p": 0.0153
+  }
+ },
+ "ny_cooling_kwh_housing_cv": {
+  "linear_random": 0.42,
+  "linear_heldout": -0.04,
+  "forest_random": 0.59,
+  "forest_heldout": -0.1
+ },
+ "ny_cooling_kwh_both": {
+  "r2": 0.6,
+  "sqft_per_unit": {
+   "b": 0.189,
+   "p": 0.0005
+  },
+  "pct_units_1_2_family": {
+   "b": 0.645,
+   "p": 0.0034
+  },
+  "surf_temp_f": {
+   "b": -15.662,
+   "p": 0.0034
+  },
+  "canopy_pct": {
+   "b": -1.692,
+   "p": 0.0481
+  },
+  "poverty_pct": {
+   "b": 1.691,
+   "p": 0.0032
+  }
+ },
+ "ny_cooling_kwh_both_cv": {
+  "linear_random": 0.52,
+  "linear_heldout": 0.19,
+  "forest_random": 0.66,
+  "forest_heldout": 0.24
+ },
+ "ny_peak_kw_heat_shade": {
+  "r2": 0.32,
+  "surf_temp_f": {
+   "b": -0.105,
+   "p": 0.0318
+  },
+  "canopy_pct": {
+   "b": 0.0,
+   "p": 0.9805
+  },
+  "poverty_pct": {
+   "b": -0.005,
+   "p": 0.2767
+  }
+ },
+ "ny_peak_kw_heat_shade_cv": {
+  "linear_random": 0.3,
+  "linear_heldout": -0.24,
+  "forest_random": 0.6,
+  "forest_heldout": -0.01
+ },
+ "ny_peak_kw_housing": {
+  "r2": 0.74,
+  "sqft_per_unit": {
+   "b": 0.002,
+   "p": 0.0
+  },
+  "pct_units_1_2_family": {
+   "b": 0.006,
+   "p": 0.0
+  }
+ },
+ "ny_peak_kw_housing_cv": {
+  "linear_random": 0.7,
+  "linear_heldout": 0.45,
+  "forest_random": 0.78,
+  "forest_heldout": 0.38
+ },
+ "ny_peak_kw_both": {
+  "r2": 0.78,
+  "sqft_per_unit": {
+   "b": 0.002,
+   "p": 0.0
+  },
+  "pct_units_1_2_family": {
+   "b": 0.006,
+   "p": 0.0
+  },
+  "surf_temp_f": {
+   "b": -0.067,
+   "p": 0.0075
+  },
+  "canopy_pct": {
+   "b": -0.011,
+   "p": 0.0038
+  },
+  "poverty_pct": {
+   "b": 0.007,
+   "p": 0.0078
+  }
+ },
+ "ny_peak_kw_both_cv": {
+  "linear_random": 0.76,
+  "linear_heldout": 0.51,
+  "forest_random": 0.81,
+  "forest_heldout": 0.48
+ },
+ "ny_by_housing": {
+  "mostly apartments (<10% in 1-2 family homes)": {
+   "zips": 68,
+   "cooling_kwh": 171.0,
+   "peak_kw": 1.16
+  },
+  "mixed (10-50%)": {
+   "zips": 57,
+   "cooling_kwh": 172.0,
+   "peak_kw": 1.21
+  },
+  "mostly houses (50%+)": {
+   "zips": 47,
+   "cooling_kwh": 252.0,
+   "peak_kw": 1.85
+  }
+ },
+ "sd_n_zips": 86,
+ "sd_customers": 1201351,
+ "sd_citywide": {
+  "summer_kwh": 402.0,
+  "shoulder_kwh": 326.0,
+  "cooling_kwh": 75.0,
+  "summer_vs_shoulder_pct": 23.0
+ },
+ "sd_corr_dist": 0.7,
+ "sd_corr_logdist": 0.7,
+ "sd_by_distance": {
+  "coast (under 5 km)": {
+   "zips": 23,
+   "customers": 348498,
+   "summer_kwh": 346.0,
+   "shoulder_kwh": 314.0,
+   "cooling_kwh": 32.0
+  },
+  "5-15 km": {
+   "zips": 35,
+   "customers": 530634,
+   "summer_kwh": 378.0,
+   "shoulder_kwh": 320.0,
+   "cooling_kwh": 58.0
+  },
+  "15-30 km": {
+   "zips": 17,
+   "customers": 252101,
+   "summer_kwh": 474.0,
+   "shoulder_kwh": 339.0,
+   "cooling_kwh": 136.0
+  },
+  "inland (30 km+)": {
+   "zips": 11,
+   "customers": 70118,
+   "summer_kwh": 593.0,
+   "shoulder_kwh": 389.0,
+   "cooling_kwh": 203.0
+  }
+ },
+ "sd_wls_logdist": {
+  "r2": 0.52,
+  "b": 50.4,
+  "p": 0.0
+ },
+ "sd_coast_to_inland": {
+  "train_zips": 43,
+  "test_zips": 43,
+  "linear_r2": -0.6,
+  "forest_r2": -0.76,
+  "forest_pred_mean": 65.0,
+  "actual_mean": 125.0
+ },
+ "sd_2018_check_corr": 0.39
+}

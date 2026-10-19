@@ -1,0 +1,94 @@
+{
+ "ny_peak_heat_shade_grouped_by_neighborhood": 0.17,
+ "ny_peak_heat_shade_by_borough": {
+  "Bronx": -1.24,
+  "Brooklyn": -0.56,
+  "Manhattan": -2.11,
+  "Queens": -0.22,
+  "Staten Island": -2.77
+ },
+ "ny_peak_housing_grouped_by_neighborhood": 0.58,
+ "ny_peak_housing_by_borough": {
+  "Bronx": 0.58,
+  "Brooklyn": 0.52,
+  "Manhattan": -0.03,
+  "Queens": -0.51,
+  "Staten Island": -1.03
+ },
+ "ny_peak_both_grouped_by_neighborhood": 0.62,
+ "ny_peak_both_by_borough": {
+  "Bronx": 0.01,
+  "Brooklyn": 0.5,
+  "Manhattan": 0.17,
+  "Queens": 0.02,
+  "Staten Island": -1.04
+ },
+ "canopy_base": {
+  "peak_kw": {
+   "per_10pts": -0.113,
+   "p": 0.004
+  },
+  "cooling_kwh": {
+   "per_10pts": -16.925,
+   "p": 0.048
+  }
+ },
+ "canopy_no_surface_temp": {
+  "peak_kw": {
+   "per_10pts": -0.007,
+   "p": 0.829
+  },
+  "cooling_kwh": {
+   "per_10pts": 7.889,
+   "p": 0.308
+  }
+ },
+ "canopy_borough_fe": {
+  "peak_kw": {
+   "per_10pts": -0.081,
+   "p": 0.011
+  },
+  "cooling_kwh": {
+   "per_10pts": -12.78,
+   "p": 0.101
+  }
+ },
+ "canopy_no_staten_island": {
+  "peak_kw": {
+   "per_10pts": -0.065,
+   "p": 0.017
+  },
+  "cooling_kwh": {
+   "per_10pts": -11.001,
+   "p": 0.09
+  }
+ },
+ "accounts_per_housing_unit": {
+  "apartments": 0.65,
+  "houses": 0.84
+ },
+ "sd_sept_vs_junaug": {
+  "coast": {
+   "jun_aug": 32,
+   "september": 87
+  },
+  "inland30": {
+   "jun_aug": 203,
+   "september": 266
+  }
+ },
+ "sd_linear_raw_distance_extrapolation": {
+  "r2": 0.13,
+  "pred_mean": 118,
+  "actual_mean": 125,
+  "train_max_km": 9.8
+ },
+ "sd_spatial_block_cv": {
+  "forest": 0.49,
+  "linear": 0.42
+ },
+ "sd_2018_vs_2019_corr": {
+  "pearson": 0.39,
+  "spearman": 0.7
+ }
+}
