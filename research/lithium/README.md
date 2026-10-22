@@ -10,7 +10,8 @@ predictive models.
 
 ![Walkthrough](media/screens/map-pm10.png)
 
-**Video walkthrough (1:26):** [`media/lithium-walkthrough.mp4`](media/lithium-walkthrough.mp4)
+**Narrated explainer (3:07):** [`media/lithium-explainer.mp4`](media/lithium-explainer.mp4) · captions: [`media/lithium-explainer.srt`](media/lithium-explainer.srt)  
+**Page walkthrough (1:26):** [`media/lithium-walkthrough.mp4`](media/lithium-walkthrough.mp4)
 **Interactive page:** [`page/index.html`](page/index.html) (open in a browser; no server needed)
 
 ## The question, as a chain

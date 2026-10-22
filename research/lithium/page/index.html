@@ -301,6 +301,19 @@ figcaption{font-size:.88rem;color:var(--ink-2)}
 .sk-l{font-size:11.5px;font-weight:600;fill:var(--ink)}
 #sol-t,table.wide{min-width:820px}
 #sol-t tr.on td{background:var(--sage)}
+.vtabs{display:flex;flex-wrap:wrap;gap:6px}
+.vtabs button{font:inherit;font-size:.88rem;font-weight:600;padding:7px 14px;min-height:38px;border:1px solid var(--rule);background:var(--bg);color:var(--ink-2);cursor:pointer;border-radius:999px}
+.vtabs button[aria-selected="true"]{background:var(--moss);border-color:var(--moss);color:var(--paper)}
+.vpanel{display:grid;gap:10px}
+.vbox{position:relative}
+.vcap{position:absolute;left:50%;bottom:72px;transform:translateX(-50%);max-width:88%;background:rgba(20,16,12,.82);color:#FBF7EE;font-size:clamp(.8rem,2.2vw,1.05rem);line-height:1.35;padding:5px 12px;border-radius:4px;text-align:center;pointer-events:none}
+.vcap:empty{display:none}
+.vrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.cc{font:inherit;font-size:.8rem;font-weight:700;padding:6px 12px;min-height:34px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer}
+.cc[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.vchaps{display:flex;flex-wrap:wrap;gap:6px}
+.vchaps button{font:inherit;font-size:.78rem;padding:4px 10px;min-height:32px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.vchaps button:hover{border-color:var(--clay)}
 .vid video{width:100%;height:auto;background:#000;border:1px solid var(--rule)}
 code{font-family:var(--mono);font-size:.85em}
 </style>
@@ -316,9 +329,22 @@ code{font-family:var(--mono);font-size:.85em}
   </header>
 
   <section aria-labelledby="lvid" class="vid">
-    <h2 id="lvid">Video walkthrough</h2>
-    <video controls preload="metadata" playsinline aria-describedby="lvid-d"><source src="../media/lithium-walkthrough.webm" type="video/webm"><source src="../media/lithium-walkthrough.mp4" type="video/mp4">Your browser cannot play this video. The file is in the GitHub repository under research/lithium/media.</video>
-    <p class="note" id="lvid-d">A 1 minute 26 second tour of the page: the burden map, dust monitors, case studies, solution sketches, predictive models and scenarios. No sound; captions are on screen.</p>
+    <h2 id="lvid">Watch: the plan in three minutes</h2>
+    <div class="vtabs" role="tablist" aria-label="Videos">
+      <button type="button" role="tab" id="vt-0" aria-controls="vp-0" aria-selected="true" tabindex="0">Narrated explainer · 3:07</button>
+      <button type="button" role="tab" id="vt-1" aria-controls="vp-1" aria-selected="false" tabindex="-1">Page walkthrough · 1:26</button>
+    </div>
+    <div role="tabpanel" id="vp-0" aria-labelledby="vt-0" class="vpanel">
+      <div class="vbox"><video id="vx" controls preload="metadata" playsinline poster="../media/explainer-poster.jpg" src="../media/lithium-explainer.mp4" aria-describedby="vx-d"></video>
+      <p class="vcap" id="vcap" aria-live="off"></p></div>
+      <div class="vrow"><button type="button" class="cc" id="cc" aria-pressed="true">Captions on</button><span class="note" id="vx-d">An AI voice explains the research with animated maps and diagrams: where the lithium is, who already breathes the dust, how GeoAI predicts it, and which fixes work.</span></div>
+      <div class="vchaps" aria-label="Chapters"><button type="button" data-t="0.0">0:00 The lithium question</button><button type="button" data-t="14.6">0:14 Where the lithium is</button><button type="button" data-t="33.3">0:33 The catch</button><button type="button" data-t="53.1">0:53 Who breathes it</button><button type="button" data-t="70.8">1:10 Measuring the dust</button><button type="button" data-t="94.2">1:34 Where GeoAI comes in</button><button type="button" data-t="121.1">2:01 Keeping the model honest</button><button type="button" data-t="132.7">2:12 Comparing the fixes</button><button type="button" data-t="161.9">2:41 Comparing futures</button><button type="button" data-t="173.4">2:53 Read more</button></div>
+    </div>
+    <div role="tabpanel" id="vp-1" aria-labelledby="vt-1" class="vpanel" hidden>
+      <video controls preload="metadata" playsinline aria-describedby="lvid-d"><source src="../media/lithium-walkthrough.webm" type="video/webm"><source src="../media/lithium-walkthrough.mp4" type="video/mp4">Your browser cannot play this video.</video>
+      <p class="note" id="lvid-d">A silent tour of this page’s interactive pieces, with captions on screen.</p>
+    </div>
+    <script type="application/json" id="vx-cues">[[0.7, 2.96, "Every electric car battery needs lithium."], [3.31, 6.89, "And California believes it's sitting on a huge supply, under a"], [6.89, 8.86, "desert lake called the Salton Sea."], [9.21, 12.39, "The question is whether we can get it out without making the air"], [12.39, 14.18, "worse for the people who live there."], [14.93, 18.92, "The Salton Sea is California's largest lake, in the southern desert."], [19.27, 21.65, "The lithium here isn't dug out of rock."], [21.65, 24.88, "It's dissolved in hot, salty brine, deep underground."], [25.23, 28.99, "Geothermal plants already pump that brine up to make electricity."], [28.99, 32.64, "A new step would pull the lithium out, then send the brine back"], [32.64, 32.93, "down."], [33.68, 34.74, "But there's a catch."], [34.74, 36.22, "The Salton Sea is shrinking."], [36.57, 39.99, "As the water pulls back, it leaves dry lakebed behind."], [39.99, 42.91, "And on windy days, that lakebed turns to dust."], [43.26, 45.29, "Lithium plants need water too."], [45.29, 49.7, "In August 2026, a court ruled the biggest project's review hadn't"], [49.7, 52.75, "shown how its water use could affect the air."], [53.5, 54.94, "So who breathes that air?"], [54.94, 55.7, "Let's map it."], [56.05, 59.76, "California scores every census tract for health and pollution"], [59.76, 60.19, "burden."], [60.19, 62.81, "Around the sea, that's seventy-nine tracts."], [63.16, 67.25, "Twenty of them rank in the state's worst fifteen percent for asthma"], [67.25, 68.29, "emergency visits."], [68.29, 70.37, "All twenty are in Imperial County."], [71.12, 72.64, "Next, the dust itself."], [72.64, 76.86, "Eight EPA monitors around the sea measure coarse dust, called"], [76.86, 77.41, "P M ten."], [77.76, 82.52, "From 2023 through 2025, at least one of them went over the federal"], [82.52, 85.61, "health limit on seventy-one different days."], [85.96, 88.4, "Bad days peak in spring and early fall."], [88.4, 92.34, "But a monitor can't tell if the dust came from the lakebed, the"], [92.34, 93.83, "desert, or a farm field."], [94.58, 96.5, "This is where GeoAI comes in:"], [96.5, 100.26, "artificial intelligence that learns from maps and images."], [100.61, 104.56, "Drones can't extract lithium, but they can watch the ground, flying"], [104.56, 107.99, "low to label which lakebed is crusted, and which is loose."], [108.34, 112.02, "A model learns from those labels, then applies them to satellite"], [112.02, 113.8, "images of the entire shoreline."], [114.15, 114.69, "The goal:"], [114.69, 118.63, "add wind data, and forecast bad dust days one to three days ahead,"], [118.63, 120.72, "so schools and clinics can prepare."], [121.47, 125.21, "But a model is only useful if it works in places it hasn't seen."], [125.56, 129.49, "So instead of testing on random points, we hold out whole stretches"], [129.49, 130.26, "of shoreline."], [130.26, 132.25, "If it fails there, it isn't ready."], [133.0, 135.69, "Then we compare solutions, downsides included."], [136.04, 139.75, "At Owens Lake, flooding the dry lakebed cut dust by more than"], [139.75, 140.97, "ninety-nine percent."], [140.97, 144.86, "But it cost over two and a half billion dollars, and about sixty"], [144.86, 146.99, "thousand acre-feet of water a year."], [147.34, 150.13, "Gravel needs no water, but tons of rock."], [150.13, 154.53, "Habitat ponds help birds, but the state has finished only about"], [154.53, 156.28, "a sixth of its 2028 goal."], [156.62, 157.78, "No single fix wins."], [157.78, 161.47, "The models help decide which patch of lakebed gets which fix."], [162.22, 164.36, "Finally, the models run scenarios:"], [164.36, 168.65, "no new lithium, one big project, or full build-out, with and without"], [168.65, 169.47, "dust control."], [169.82, 172.96, "That way, we can compare futures before anything is built."], [173.71, 176.56, "Lithium and clean air don't have to be a trade-off."], [176.56, 177.85, "But only if we measure."], [178.2, 181.9, "The full plan, the interactive maps, and all the code are free"], [181.9, 182.56, "to explore."], [182.56, 184.3, "Links are in the description."]]</script>
   </section>
 
   <section aria-labelledby="l1">
@@ -582,6 +608,16 @@ code{font-family:var(--mono);font-size:.85em}
       if(k==='ArrowRight'||k==='ArrowDown'){e.preventDefault();sel((i+1)%n,1)}else if(k==='ArrowLeft'||k==='ArrowUp'){e.preventDefault();sel((i-1+n)%n,1)}
       else if(k==='Home'){e.preventDefault();sel(0,1)}else if(k==='End'){e.preventDefault();sel(n-1,1)}});});
     return {sel:sel,cur:function(){return bs.findIndex(function(b){return b.getAttribute('aria-selected')==='true'})}};}
+  (function(){var tl=document.querySelector('.vtabs');if(!tl)return;var bs=[].slice.call(tl.querySelectorAll('[role=tab]'));
+    function sel(i){bs.forEach(function(b,j){var on=i===j;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;var pn=document.getElementById(b.getAttribute('aria-controls'));pn.hidden=!on;if(!on){var v=pn.querySelector('video');if(v)v.pause();}});}
+    bs.forEach(function(b,i){b.addEventListener('click',function(){sel(i)});b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var n=(i+(e.key==='ArrowRight'?1:bs.length-1))%bs.length;sel(n);bs[n].focus();}});});
+    var v=document.getElementById('vx'),cap=document.getElementById('vcap'),cc=document.getElementById('cc'),on=true,cues=[];
+    try{cues=JSON.parse(document.getElementById('vx-cues').textContent)}catch(e){}
+    function upd(){if(!on){cap.textContent='';return;}var t=v.currentTime,c='';for(var k=0;k<cues.length;k++){if(t>=cues[k][0]&&t<=cues[k][1]+0.15){c=cues[k][2];break;}}if(cap.textContent!==c)cap.textContent=c;}
+    v.addEventListener('timeupdate',upd);v.addEventListener('seeked',upd);
+    cc.addEventListener('click',function(){on=!on;cc.setAttribute('aria-pressed',on);cc.textContent=on?'Captions on':'Captions off';upd();});
+    document.querySelectorAll('.vchaps button').forEach(function(b){b.addEventListener('click',function(){v.currentTime=+b.dataset.t;v.play().catch(function(){});});});
+  })();
   tabs('sc');
   tabs('pm');
   var cv=document.getElementById('cv');if(cv){cv.addEventListener('click',function(e){var b=e.target.closest('button[data-cv]');if(!b)return;
