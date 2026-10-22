@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/header.svg" width="100%" alt="GeoAI for Cities research site and article series: define, measure, rank, decide."></p>
+
 # GeoAI for Cities
 
 > 🌐 **Live site: [johanarisato.github.io/geoai-for-cities](https://johanarisato.github.io/geoai-for-cities/)** · [Portfolio](https://johanarisato.github.io/Johan.github.io/)
