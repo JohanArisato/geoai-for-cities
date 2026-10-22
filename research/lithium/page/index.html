@@ -5,6 +5,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+[hidden]{display:none!important}
 /* Layout: one reading column like Parts 1 and 2, with the site's cream, moss and clay palette; draft placeholders drawn as dashed figure frames */
 :root{
   --bg:#F3EBDD; --paper:#FBF7EE; --ink:#2B2219; --ink-2:#5A4A39; --rule:#D6C7AC;
@@ -305,6 +306,8 @@ figcaption{font-size:.88rem;color:var(--ink-2)}
 .vtabs button{font:inherit;font-size:.88rem;font-weight:600;padding:7px 14px;min-height:38px;border:1px solid var(--rule);background:var(--bg);color:var(--ink-2);cursor:pointer;border-radius:999px}
 .vtabs button[aria-selected="true"]{background:var(--moss);border-color:var(--moss);color:var(--paper)}
 .vpanel{display:grid;gap:10px}
+.vpanel[hidden]{display:none}
+@media (max-width:560px){.vcap{bottom:56px;font-size:.72rem;padding:3px 8px}}
 .vbox{position:relative}
 .vcap{position:absolute;left:50%;bottom:72px;transform:translateX(-50%);max-width:88%;background:rgba(20,16,12,.82);color:#FBF7EE;font-size:clamp(.8rem,2.2vw,1.05rem);line-height:1.35;padding:5px 12px;border-radius:4px;text-align:center;pointer-events:none}
 .vcap:empty{display:none}
