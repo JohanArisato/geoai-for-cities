@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jhoven Fernandez · CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f6f1e7;--ink:#2b2620;--muted:#6f655a;--rule:#cfc3b0;--accent:#7a4a2e;--link:#5a6b3a}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#221d18;--ink:#ece3d4;--muted:#a89a88;--rule:#4a4036;--accent:#d49a72;--link:#a9bb83}}
+  :root[data-theme="dark"]{--paper:#221d18;--ink:#ece3d4;--muted:#a89a88;--rule:#4a4036;--accent:#d49a72;--link:#a9bb83}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.5 "EB Garamond",Georgia,"Times New Roman",serif}
+  main{max-width:760px;margin:0 auto;padding:48px 16px 72px}
+  header{text-align:center;margin-bottom:28px}
+  h1{font-weight:600;font-size:36px;letter-spacing:.02em;margin:0}
+  .contact{color:var(--muted);font-size:16px;margin:6px 0 0}
+  .contact a{color:var(--muted)}
+  h2{font-weight:600;font-size:17px;font-variant:small-caps;letter-spacing:.12em;color:var(--accent);margin:30px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--rule);text-transform:lowercase}
+  .entry{margin:0 0 14px}
+  .line{display:flex;justify-content:space-between;gap:16px}
+  .line .when{color:var(--muted);white-space:nowrap}
+  .what{font-weight:600}
+  .note{color:var(--muted);font-style:italic}
+  ul{margin:4px 0 0;padding-left:22px}
+  li{margin:2px 0}
+  a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:2px}
+  p{margin:0 0 8px}
+  @media (max-width:520px){.line{flex-direction:column;gap:0}body{font-size:17px}}
+  @media print{:root{--paper:#fff;--ink:#000;--muted:#444;--rule:#999;--accent:#000;--link:#000}main{padding:0}.entry{break-inside:avoid}h2{break-after:avoid}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Jhoven Fernandez</h1>
+    <p class="contact">San Diego, California · <a href="mailto:jhoven.jan98@gmail.com">jhoven.jan98@gmail.com</a><br>
+      <a href="https://github.com/jhovenf98">github.com/jhovenf98</a> · <a href="https://jhovenf98.github.io/geoai-for-cities/">jhovenf98.github.io/geoai-for-cities</a> · <a href="https://www.linkedin.com/in/jhoven-fernandez">LinkedIn</a> · <a href="https://orcid.org/0009-0000-1526-4744">ORCID 0009-0000-1526-4744</a></p>
+  </header>
+
+  <h2>Research Interests</h2>
+  <p>Urban data science; spatial statistics and machine learning for housing, extreme heat and public infrastructure; equity in how cities prioritize investment; validation of spatial models; public-sector use of AI.</p>
+
+  <h2>Education</h2>
+  <div class="entry"><div class="line"><span><span class="what">University of California, San Diego</span>, B.A. Urban Studies and Planning</span><span class="when">2024</span></div></div>
+  <div class="entry"><div class="line"><span><span class="what">San Diego Miramar College</span>, A.S. Computer Information Science; A.S. Business Administration</span><span class="when">2022</span></div></div>
+
+  <h2>Research</h2>
+  <div class="entry">
+    <div class="line"><span class="what">Who Gets the Shade? Ranking New York Neighborhoods for Tree Planting</span><span class="when">2026</span></div>
+    <div class="note">Working paper. <a href="https://github.com/jhovenf98/who-gets-the-shade">Code and data</a></div>
+    <ul>
+      <li>Analyzed heat exposure, tree canopy, poverty and heat-related emergency visits across New York City's 42 UHF neighborhoods using public data from the NYC Environment &amp; Health Data Portal.</li>
+      <li>Heat-related emergency visits were more strongly correlated with poverty (r = 0.59) than with surface temperature (r = 0.20). Tree canopy was associated with lower surface temperature (−0.17 °F per percentage point).</li>
+      <li>Compared five prioritization rules and 5,000 random weightings. The number of high-poverty neighborhoods among the first ten selected ranged from four to nine depending on the rule.</li>
+      <li>Methods: Moran's I and LISA, spatial lag and error models, leave-one-borough-out cross-validation.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="line"><span class="what">Will It Get Built? Predicting Which Housing Element Sites Are Developed</span><span class="when">2026</span></div>
+    <div class="note">In progress. Model tested on simulated data; analysis of city permit records underway. <a href="https://github.com/jhovenf98/housing-site-realization">Code</a></div>
+    <ul>
+      <li>Developing a model to estimate which sites in San Diego's 2021–2029 Housing Element inventory receive housing approvals, and comparing it with the capacity assumptions in the inventory.</li>
+      <li>Methods: spatial cross-validation, gradient boosting, probability calibration, SHAP, equity comparison across state opportunity areas.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="line"><span class="what">CurbCall: Resident Reporting and Prioritization of Street Repairs</span><span class="when">2026</span></div>
+    <div class="note">Prototype; not yet tested with residents. <a href="https://github.com/jhovenf98/curbcall">Code</a></div>
+    <ul><li>Designed a prototype in which residents report infrastructure problems and vote on repair priorities within each area of the city, to study whose concerns are reflected in public works decisions.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="line"><span class="what">The Role of AI in Urban Planning and Municipal Operations</span><span class="when">2023–2024</span></div>
+    <div class="note">UC San Diego. Third place, UCSD Urban Expo.</div>
+    <ul><li>Examined how U.S. cities deploy AI tools, drawing on interviews with practitioners and a review of commercial platforms, with attention to governance and transparency.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="line"><span class="what">Land Use Analysis, New York</span><span class="when">2024</span></div>
+    <div class="note">UC San Diego</div>
+    <ul><li>Mapped eight land-use categories using satellite imagery, zoning records and municipal data.</li></ul>
+  </div>
+
+  <h2>Writing</h2>
+  <div class="entry">
+    <p><span class="what">GeoAI for Cities</span>, an essay series on spatial technology and urban decision-making. <a href="https://jhovenf98.github.io/geoai-for-cities/">Online</a></p>
+    <ul>
+      <li>“What Is GeoAI? Definitions, Foundations and Five Verbs Across U.S. Cities”</li>
+      <li>“Who Gets the Shade? Ranking New York Neighborhoods for Tree Planting”</li>
+    </ul>
+  </div>
+
+  <h2>Honors</h2>
+  <p>Third Place, UCSD Urban Expo</p>
+
+  <h2>Professional Experience</h2>
+  <div class="entry">
+    <div class="line"><span><span class="what">Action Research</span>, Project and Program Associate</span><span class="when">2024–2026</span></div>
+    <ul>
+      <li>Supported stormwater compliance programs (MS4/NPDES) for four San Diego County municipalities.</li>
+      <li>Maintained geodatabases of parcels, impervious surfaces and drainage infrastructure used to prioritize capital improvement sites.</li>
+      <li>Wrote SQL and Python (ArcPy, Pandas) routines to combine data from several jurisdictions, and built reporting dashboards for city staff.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="line"><span><span class="what">UC San Diego Facilities Management</span>, GIS Project Assistant</span><span class="when">2023–2024</span></div>
+    <ul>
+      <li>Georeferenced 1,788 AutoCAD building drawings into an ArcGIS Pro geodatabase, producing a campus basemap.</li>
+      <li>Tested drone survey workflows in Drone2Map to produce orthomosaics and 3D models.</li>
+      <li>Made maps, web maps and dashboards for capital planning.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="line"><span><span class="what">American Academy of Pediatrics</span>, Research and Development Intern</span><span class="when">2023</span></div>
+    <ul><li>Collected and cleaned public health and demographic data, and joined Census/ACS data to infrastructure layers to identify gaps in service access.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="line"><span><span class="what">Blue Equinox</span>, Programming Intern</span><span class="when">2021–2022</span></div>
+    <ul><li>Built internal dashboards and automated recurring reports using Python, JavaScript and SQL.</li></ul>
+  </div>
+
+  <h2>Skills</h2>
+  <p><span class="what">Methods:</span> spatial autocorrelation, spatial regression, spatial cross-validation, gradient boosting, model calibration and interpretation.<br>
+  <span class="what">Software:</span> Python (GeoPandas, PySAL, scikit-learn, Pandas, ArcPy), SQL, PostgreSQL/PostGIS, ArcGIS Pro, QGIS, AutoCAD Civil 3D.<br>
+  <span class="what">Planning:</span> Housing Elements and RHNA, zoning, CEQA, stormwater permitting, capital improvement planning.</p>
+
+  <h2>Training</h2>
+  <p>Bloomberg Market Concepts; Bloomberg Finance Fundamentals; Bloomberg ESG. AWS Solutions Architect Associate preparation course (Udemy). Business Analysis and Process Management (Coursera).</p>
+</main>
+</body>
+</html>
