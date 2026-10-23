@@ -1,7 +1,7 @@
 # Record Heat, Record Demand: Can GeoAI Predict Where the Grid Strains?
 
 Code and data for Part 3 of *GeoAI for Cities* by Jhoven (Johan) Fernandez (working paper, October 2026).
-Read it at https://johanarisato.github.io/geoai-for-cities/#part-3
+Read it at https://jhovenf98.github.io/geoai-for-cities/#part-3
 
 ## Question
 Where does summer electricity demand climb in New York and San Diego, what explains it, and can a model
@@ -12,7 +12,7 @@ built in one place predict another?
 - San Diego: SDG&E Energy Data Request Program, residential ZIP data, 2018–2019 (`data/raw/sdge_zip_summary_2018_2019.csv`)
 - New York housing: NYC MapPLUTO 26v2 (`data/raw/pluto_zip_housing.csv`)
 - City comparison: EIA Form 861M, 2024–2025 (`data/raw/eia861m_city_utilities.csv`)
-- Heat, canopy and poverty for New York: Part 2 (github.com/JohanArisato/who-gets-the-shade)
+- Heat, canopy and poverty for New York: Part 2 (github.com/jhovenf98/who-gets-the-shade)
 - Boundaries: NYC Health Dept. geography files; Census ZIP areas (OpenDataDE); Natural Earth coastline
 
 `code/00_browser_pulls.md` explains how each raw summary was pulled. Only per-ZIP and per-utility

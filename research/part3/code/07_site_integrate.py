@@ -37,7 +37,7 @@ view = f'''<div class="page post-page" id="part-3-view" hidden>
       <p class="ps-meta">GeoAI for Cities, Part 3. Original study, working paper (October 2026)</p>
       <h1 class="page-title">Record Heat, Record Demand: Can GeoAI Predict Where the Grid Strains?</h1>
       <p class="ps-dek">In September 2026, San Diego’s grid hit its highest demand on record. I used utility meter data for 3.9 million households in New York and San Diego to see where summer electricity use climbs, what explains it, and whether a model built in one place can predict another.</p>
-      <p class="byline">By Jhoven (Johan) Fernandez. Builds on <a href="#part-2">Part 2: Who Gets the Shade?</a> <a href="https://github.com/JohanArisato/geoai-for-cities/tree/main/research/part3" target="_blank" rel="noopener">The code, data and a note on how each dataset was pulled are on GitHub</a>.</p>
+      <p class="byline">By Jhoven (Johan) Fernandez. Builds on <a href="#part-2">Part 2: Who Gets the Shade?</a> <a href="https://github.com/jhovenf98/geoai-for-cities/tree/main/research/part3" target="_blank" rel="noopener">The code, data and a note on how each dataset was pulled are on GitHub</a>.</p>
       <section class="abstract" aria-label="Summary">
         <div class="abs-col bs-kf"><h2 class="abs-h">Key findings</h2><ul>{kf}</ul></div>
       </section>

@@ -2,7 +2,7 @@
 
 # GeoAI for Cities
 
-> 🌐 **Live site: [johanarisato.github.io/geoai-for-cities](https://johanarisato.github.io/geoai-for-cities/)** · [Portfolio](https://johanarisato.github.io/Johan.github.io/)
+> 🌐 **Live site: [jhovenf98.github.io/geoai-for-cities](https://jhovenf98.github.io/geoai-for-cities/)** · [Portfolio](https://jhovenf98.github.io/Johan.github.io/)
 
 **A research website and article series on GeoAI and urban decision-making** · Johan Fernandez · Ongoing
 
@@ -14,31 +14,31 @@ GeoAI is a popular term with a vague meaning. This series defines it carefully, 
 |---|---|
 | **Part 1: What Is GeoAI?** | An academic-style primer: definitions, tables, a timeline of GIS and spatial technology, and paths for practitioners and academics |
 | **Manhattan, Measured** | An exploratory case study of how researchers measured the city before and after machine learning |
-| **Part 2: Who Gets the Shade?** | An original spatial study of tree planting and heat in New York, with an interactive map ([code and data](https://github.com/JohanArisato/who-gets-the-shade)) |
+| **Part 2: Who Gets the Shade?** | An original spatial study of tree planting and heat in New York, with an interactive map ([code and data](https://github.com/jhovenf98/who-gets-the-shade)) |
 
-The site also profiles my projects, including [CurbCall](https://github.com/JohanArisato/curbcall) and [Will It Get Built?](https://github.com/JohanArisato/housing-site-realization).
+The site also profiles my projects, including [CurbCall](https://github.com/jhovenf98/curbcall) and [Will It Get Built?](https://github.com/jhovenf98/housing-site-realization).
 
 ## The research stack behind it
 
 | Repository | Role |
 |---|---|
-| [geoai-cities-db](https://github.com/JohanArisato/geoai-cities-db) | Shared spatial database (GeoPackage + PostGIS) that every project reads from |
-| [who-gets-the-shade](https://github.com/JohanArisato/who-gets-the-shade) | Study code; reproduces every number in Part 2 from public data |
-| [curbcall](https://github.com/JohanArisato/curbcall) | Resident-ranked infrastructure repairs, San Diego |
-| [housing-site-realization](https://github.com/JohanArisato/housing-site-realization) | Predicting which Housing Element sites get built |
+| [geoai-cities-db](https://github.com/jhovenf98/geoai-cities-db) | Shared spatial database (GeoPackage + PostGIS) that every project reads from |
+| [who-gets-the-shade](https://github.com/jhovenf98/who-gets-the-shade) | Study code; reproduces every number in Part 2 from public data |
+| [curbcall](https://github.com/jhovenf98/curbcall) | Resident-ranked infrastructure repairs, San Diego |
+| [housing-site-realization](https://github.com/jhovenf98/housing-site-realization) | Predicting which Housing Element sites get built |
 
 ## Interactive explorers (served from `explore/`)
 
 | Explorer | Project |
 |---|---|
-| [Shade map](https://johanarisato.github.io/geoai-for-cities/explore/shade.html) | Who Gets the Shade? |
-| [Housing site explorer](https://johanarisato.github.io/geoai-for-cities/explore/housing.html) | Will It Get Built? (synthetic test data) |
-| [CurbCall app](https://johanarisato.github.io/geoai-for-cities/explore/curbcall.html) | CurbCall (preview mode) |
-| [Database explorer](https://johanarisato.github.io/geoai-for-cities/explore/database.html) | GeoAI Cities DB |
+| [Shade map](https://jhovenf98.github.io/geoai-for-cities/explore/shade.html) | Who Gets the Shade? |
+| [Housing site explorer](https://jhovenf98.github.io/geoai-for-cities/explore/housing.html) | Will It Get Built? (synthetic test data) |
+| [CurbCall app](https://jhovenf98.github.io/geoai-for-cities/explore/curbcall.html) | CurbCall (preview mode) |
+| [Database explorer](https://jhovenf98.github.io/geoai-for-cities/explore/database.html) | GeoAI Cities DB |
 
 ## Viewing the site
 
-`index.html` is the whole site in one self-contained file (D3 and three.js load from cdnjs). Open it locally, or enable **GitHub Pages** (Settings → Pages → deploy from `main`, root) to publish it at `https://johanarisato.github.io/geoai-for-cities/`.
+`index.html` is the whole site in one self-contained file (D3 and three.js load from cdnjs). Open it locally, or enable **GitHub Pages** (Settings → Pages → deploy from `main`, root) to publish it at `https://jhovenf98.github.io/geoai-for-cities/`.
 
 ## How this was made
 
